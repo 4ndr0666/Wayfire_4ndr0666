@@ -1,0 +1,33 @@
+#File: $HOME/.config/wayfire/alacritty/fonts.toml
+#Author: 4ndr0666
+#
+# --- // FONTS.TOML // ========
+
+
+[font]
+size = 10
+builtin_box_drawing = true
+
+[font.normal]
+family = "MesloLGS NF"
+#JetBrainsMono Nerd Font"
+
+[font.bold]
+family = "MesloLGS NF"
+#JetBrainsMono Nerd Font"
+
+[font.italic]
+family = "MesloLGS NF" 
+#"JetBrainsMono Nerd Font"
+
+[font.bold_italic]
+family = "MesloLGS NF" 
+#"JetBrainsMono Nerd Font"
+
+[font.offset]
+x = 0
+y = 0
+
+[font.glyph_offset]
+x = 0
+y = 0
