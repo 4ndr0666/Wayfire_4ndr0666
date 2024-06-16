@@ -4,6 +4,6 @@
 ##
 ## Set Wallpaper in Wayfire
 
-WALLPAPER='/home/andro/Wallpapers/Honeycomb Garuda SGS.png'
+WALLPAPER='/home/andro/Wallpapers/candy-02.jpg'
 
 swaybg --output '*' --mode fill --image "$WALLPAPER"
