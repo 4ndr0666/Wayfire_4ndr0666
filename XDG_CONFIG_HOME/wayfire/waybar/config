@@ -43,7 +43,6 @@
 	"wlr/taskbar",
     ],
     "modules-right": [
-        "custom/updates",
         "tray",
 	"idle_inhibitor",
         "pulseaudio",

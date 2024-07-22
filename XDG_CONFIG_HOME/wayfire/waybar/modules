@@ -88,14 +88,16 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 1,
+        "interval": 60,
 	"align": 0,
 	"rotate": 0,
         "format": " {:%I:%M %p %A | %b %d, %G}",
         //"format-alt": " {:%I:%M %p}",
         //"format-alt": " {:%A | %b %d, %G}"
-        "on-click-right": "~/.config/waybar/scripts/OCV",
+        //"on-click-right": "~/.config/waybar/scripts/OCV",
     },
+
+	// waybar-custom
     "custom/themes": {
         "format": "",
         "tooltip": false,
@@ -142,10 +144,12 @@
          "format":"⏻",
          //"format": "襤",
          "tooltip": false,
-         "on-click": "wlogout"
-         //"on-click": "$HOME/.config/wayfire/scripts/nwgbar",
-         //"on-click": "$HOME/.config/wayfire/scripts/rofi_powermenu",
+         //"on-click": "nwgbar"
+         //"on-click": "$HOME/.config/wayfire/scripts/wlogout",
+         "on-click": "$HOME/.config/wayfire/scripts/rofi_powermenu",
     },
+
+	// waybar-disk
 
 	// waybar-idle-inhibitor
     "idle_inhibitor": {
@@ -156,6 +160,7 @@
          },
          "timeout": 30
     },
+
 	// waybar-inhibitor
 	// waybar-keyboard-state
 	// waybar-memory
@@ -174,6 +179,7 @@
         "on-scroll-down": "playerctl position 05-",
         "smooth-scrolling-threshold": 1,
     },
+
 	// waybar-mpd
     "mpd": {
         "interval": 1,
@@ -197,6 +203,7 @@
         "on-scroll-down": "mpc seek -00:00:01",
         "smooth-scrolling-threshold": 1,
     },
+
 	// waybar-network
     "network": {
 		"interval": 5,
@@ -209,6 +216,7 @@
         "format-alt": " {bandwidthUpBits} |  {bandwidthDownBits}",
         "tooltip-format": " {ifname} via {gwaddr}",
     },
+
 	// waybar-pulseaudio
     "pulseaudio": {
         //"format": "{volume}% {icon} {format_source}",
@@ -243,12 +251,14 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+
 	// waybar-sway-window
     "sway/window": {
         "format": "{}",
         "max-length": 50,
         "icon": false,
     },
+
 	// waybar-sway-workspaces
     "sway/workspaces": {
          "disable-scroll": false,
@@ -276,11 +286,13 @@
         "disable-markup": false,
         "current-only": false,
     },
+
 	// waybar-tray
     "tray": {
         "icon-size": 16,
         "spacing": 10
     },
+
 	// waybar-wlr-taskbar
     "wlr/taskbar": {
          "format": "{icon}",
@@ -300,6 +312,7 @@
          "on-click-right": "maximize",
          "on-update": "",
     },
+    
 	// waybar-wlr-workspaces
     "wlr/workspaces": {
          "format": "{icon}",

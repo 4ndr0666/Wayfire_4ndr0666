@@ -65,6 +65,11 @@ window#waybar.geany {
     animation-direction: alternate;
 }
 
+/** ********** Clock ********** **/
+#clock {
+    border-bottom: 2px solid @green;
+}
+
 /** ********** Sway ********** **/
 #workspaces {
 	background-color: @background-alt;
