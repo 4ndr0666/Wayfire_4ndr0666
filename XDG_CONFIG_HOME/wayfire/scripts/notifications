@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## launch mako with alt config
+# Enhanced Mako Notifications Script with Improved Process Check
 
 CONFIG="$HOME/.config/wayfire/mako/config"
 
-if [[ ! `pidof mako` ]]; then
-	mako --config ${CONFIG}
+# Check if Mako is running using pgrep
+if ! pgrep -x "mako" > /dev/null; then
+    mako --config "${CONFIG}"
 fi

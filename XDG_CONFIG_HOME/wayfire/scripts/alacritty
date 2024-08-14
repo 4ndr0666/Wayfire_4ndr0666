@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## launch alacritty with alt config
+# Enhanced Alacritty Launch Script with Fallback Configuration
 
 CONFIG="$HOME/.config/wayfire/alacritty/alacritty.toml"
+DEFAULT_CONFIG="/etc/alacritty/alacritty.yml"
 
+# Check if the custom configuration file exists
+if [ ! -f "$CONFIG" ]; then
+    echo "Custom config not found. Using default configuration."
+    CONFIG="$DEFAULT_CONFIG"
+fi
+
+# Handle the input arguments and launch Alacritty accordingly
 if [ "$1" == "-f" ]; then
 	alacritty --class 'alacritty-float,alacritty-float' --config-file "$CONFIG"
 elif [ "$1" == "-F" ]; then

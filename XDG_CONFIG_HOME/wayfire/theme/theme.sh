@@ -39,7 +39,7 @@ source_default() {
 ## Random Theme
 source_pywal() {
 	# Set you wallpaper directory here.
-	WALLDIR="`xdg-user-dir PICTURES`/wallpapers"
+	WALLDIR="/home/andro/Wallpapers"
 
 	# Check for wallpapers
 	check_wallpaper() {
