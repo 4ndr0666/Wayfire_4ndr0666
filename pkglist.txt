@@ -493,9 +493,6 @@ thunar
 thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
-timeshift
-timeshift-autosnap
-timeshift-systemd-timer
 tmux
 topgrade
 totem-pl-parser
@@ -580,13 +577,11 @@ zsh-autocomplete-git
 zsh-autosuggestions-git
 zsh-completions
 zsh-extract-git
-zsh-fast-syntax-highlighting
 zsh-fzf-plugin-git
 zsh-history-substring-search-git
-zsh-lovers
 zsh-pure-prompt
 zsh-sudo-git
-zsh-syntax-highlighting-git
+zsh-syntax-highlighting
 zsh-systemd-git
 zsh-theme-powerlevel10k-git
 zsh-you-should-use
