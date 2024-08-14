@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Media directories
+MEDIA_DIRS=("$HOME/Videos" "$HOME/Downloads" "/23.1" "/Storage" "/4ndr0")
+
+# Function to display dmenu prompt
+dmenu_prompt() {
+  echo -e "$1" | dmenu -i -l 10
+}
+
+# Function to play the playlist
+play_playlist() {
+  local playlist="$1"
+  if [ -f "$playlist" ] && [ -s "$playlist" ]; then
+    mpv --shuffle --playlist="$playlist" --loop-playlist=inf --no-border --player-operation-mode=pseudo-gui --no-osc &
+  else
+    echo "The playlist file is empty or does not exist."
+  fi
+}
+
+# Function to generate a playlist and play it
+generate_and_play_playlist() {
+  local dir="$1"
+  local playlist_file="$dir/temp_playlist.m3u"
+
+  # Find media files recursively and create a playlist
+  find "$dir" -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" \) > "$playlist_file"
+
+  if [ -s "$playlist_file" ]; then
+    # Shuffle the playlist and play it
+    play_playlist "$playlist_file"
+  else
+    echo "No media files found in $dir."
+    rm -f "$playlist_file"
+  fi
+}
+
+# Main menu
+while true; do
+  dir_choice=$(dmenu_prompt "$(printf "%s\n" "${MEDIA_DIRS[@]}" && echo "Exit")")
+  if [ "$dir_choice" = "Exit" ]; then
+    exit 0
+  elif [ -n "$dir_choice" ]; then
+    generate_and_play_playlist "$dir_choice"
+  fi
+done
