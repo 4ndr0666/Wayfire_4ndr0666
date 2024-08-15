@@ -1,25 +1,20 @@
-#File: fresh_install.md 
-#Author: 4ndr0666
-#Edited: 06-03-24
+# File: fresh_install.md
+# Author: 4ndr0666
+# Edited: 06-03-24
 #
 # --- // FRESH_INSTALL.MD // ========
 
 
-
-
-
-
-
 # === // NOTATED // ========
 1. pacman -Syu    |Update
-2. 
+2.
 
 **changelog**
 
 ### 2) Workflow logic for an "auto-root" mechanism:
 
  First we mount the btrfs driver order:
-```bash 
+```bash
  sudo mount -o defaults,subvol=@ /dev/sdc3 /mnt/garuda/
  sudo mount -o defaults,subvol=@root /dev/sdc3 /mnt/garuda/@/root
  sudo mount -o defaults,subvol=@cache /dev/sdc3 /mnt/garuda/@/var/cache
