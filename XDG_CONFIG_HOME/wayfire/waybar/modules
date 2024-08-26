@@ -9,13 +9,14 @@
     "custom/terminal": {
 	"format": "",
         "on-click": "~/.config/wayfire/waybar/scripts/alacritty",
-        "on-click-right": "bash -c pkill -9 alacritty ; pkill -9 st",
+        "on-click-right": "~/.config/wayfire/waybar/scripts/st", 
+        //"bash -c pkill -9 alacritty ; pkill -9 st",
     },
     "custom/filemanager": {
 	"format": "",
         "on-click": "thunar",
-        //"on-click-right": "pcmanfm",
-        "on-click-right": "bash -c 'pkill -9 thunar ; pkill -9 pcmanfm ; pkill -9 lf",
+        "on-click-right": "pcmanfm",
+        //"on-click-right": "bash -c 'pkill -9 thunar ; pkill -9 pcmanfm ; pkill -9 lf",
     },
     "custom/brave": {
 	"format": "",
@@ -54,7 +55,7 @@
         "format-alt": "{percentage}% used",
         "format-alt-click": "click-left",
         "return-type": "json",
-        "on-click-right": "alacritty -e bashmount",
+        "on-click-right": "thunar /",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage.sh",
     },
@@ -72,37 +73,38 @@
         "format-alt": "{percentage}% used",
         "format-alt-click": "click-left",
         "return-type": "json",
-        "on-click-right": "sudo alacritty -e joshuto /Nas",
+        "on-click-right": "thunar /Nas",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage3.sh",
     },
     "custom/storage4": {
-        "format": "/Storage {}",
+        "format": "/storage {}",
         "format-alt": "{percentage}% used",
         "format-alt-click": "click-left",
         "return-type": "json",
-        "on-click-right": "thunar /Storage",
+        "on-click-right": "thunar /storage",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage4.sh",
     },
     "custom/storage5": {
-        "format": "/ {}",
+        "format": "/sto2 {}",
         "format-alt": "{percentage}% used",
-        "format-alt-click": "click-right",
+        "format-alt-click": "click-left",
         "return-type": "json",
-        "on-click": "",
+        "on-click-right": "thunar /sto2",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage5.sh",
     },
     "clock": {
         "tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 60,
-	"align": 0,
-	"rotate": 0,
+    	"align": 0,
+	    "rotate": 0,
         "format": " {:%I:%M %p %A | %b %d, %G}",
         //"format-alt": " {:%I:%M %p}",
         //"format-alt": " {:%A | %b %d, %G}"
-        "on-click-right": "~/.config/waybar/scripts/OCV",
+        "on-click-right": "alacritty -e bashmount",
+        "on-click": "~/.config/waybar/scripts/OCV",
     },
 
 	// waybar-custom
@@ -115,12 +117,12 @@
     "cpu": {
         "format": "🖳{usage}%",
         "on-click": "alacritty -e htop",
-	"on-click-right": "alacritty -e btop",
+	    "on-click-right": "alacritty -e btop",
     },
     "memory": {
         "format": "🖳{: >3}%",
         "on-click": "alacritty -e htop",
-	"on-click-right": "~/.config/wayfire/waybar/scripts/keyhint.sh",
+	    "on-click-right": "~/.config/wayfire/waybar/scripts/keyhint.sh",
     },
     //"memory": {
     //    "format": "🖴 {: >3}%",
@@ -137,20 +139,20 @@
          "on-click-right": "$HOME/.config/wayfire/scripts/rofi_runner",
     },
     "custom/updates": {
-        "format": " {} {icon}",
+        "format": "{} {icon}",
         "return-type": "json",
         "format-icons": {
             "has-updates": "󱍷",
             "updated": "󰂪",
-            "interval": 7200
+            "updated": "󰂪",
+           "interval": 3600,
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates",
-        "on-click": "~/.config/wayfire/waybar/scripts/alacritty -e garuda-update -a"
+        "on-click": "alacritty -e garuda-update -a"
     },
     "custom/power": {
-         "format":"⏻",
-         //"format": "襤",
+         "format": "襤",
          "tooltip": false,
          //"on-click": "nwgbar"
          //"on-click": "$HOME/.config/wayfire/scripts/wlogout",
@@ -166,7 +168,7 @@
              "activated": "",
              "deactivated": ""
          },
-         "timeout": 30
+        // "timeout": 30
     },
 
 	// waybar-inhibitor
@@ -244,6 +246,7 @@
             "default": ["", "", ""]
         },
         "scroll-step": 5.0,
+		// Commands to execute on events
         "on-click": "pavucontrol",
         "on-click-right": "pulsemixer --toggle-mute",
         //"on-click-right": "jamesdsp"
@@ -295,6 +298,8 @@
         "current-only": false,
     },
 
+	// waybar-temperature
+
 	// waybar-tray
     "tray": {
         "icon-size": 16,
@@ -307,7 +312,7 @@
          "all-outputs": false,
          "active-first": false,
          "icon-size": 24,
-         "icon-theme": "Sweet-Teal",
+         "icon-theme": "Archcraft-Dark",
          "tooltip-format": "{title}",
          //"ignore-list": [
          //    "Alacritty"
@@ -316,11 +321,11 @@
               "firefoxdeveloperedition": "firefox-developer-edition"
          },
          "on-click": "minimize-raise",
-         "on-click-middle": "close",
-         "on-click-right": "maximize",
-         "on-update": "",
+         //"on-click-middle": "close",
+         "on-click-right": "restore",
+         //"on-update": "",
     },
-
+    
 	// waybar-wlr-workspaces
     "wlr/workspaces": {
          "format": "{icon}",

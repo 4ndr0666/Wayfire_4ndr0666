@@ -366,6 +366,10 @@ window#waybar.empty #window {
     border-bottom: 2px solid @yellow;
 }
 
+#memory {
+    border-bottom: 2px solid @green;
+}
+
 #custom-brave {
     border-bottom: 2px solid @green;
 }
@@ -391,6 +395,7 @@ window#waybar.empty #window {
 }
 
 
+
 /** Common style **/
 #backlight, 
 #memory,
@@ -398,6 +403,7 @@ window#waybar.empty #window {
 #custom-storage2,
 #custom-storage3,
 #custom-storage4,
+#custom-storage5,
 #custom-brave,
 #custom-filemanager,
 #custom-updates,

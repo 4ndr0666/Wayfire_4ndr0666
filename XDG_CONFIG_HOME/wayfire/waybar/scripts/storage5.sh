@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mount="/wayfire"
+mount="/sto2"
 warning=20
 critical=10
 
