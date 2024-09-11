@@ -4,16 +4,10 @@
 #
 # --- // FRESH_INSTALL.MD // ========
 
-
-# === // NOTATED // ========
-1. pacman -Syu    |Update
-2.
-
 **changelog**
 
-### 2) Workflow logic for an "auto-root" mechanism:
+  - Workflow logic for an btrfs "auto-root" mechanism:
 
- First we mount the btrfs driver order:
 ```bash
  sudo mount -o defaults,subvol=@ /dev/sdc3 /mnt/garuda/
  sudo mount -o defaults,subvol=@root /dev/sdc3 /mnt/garuda/@/root
@@ -24,7 +18,8 @@
  sudo mount /dev/sdc1 /boot/efi
 ```
 
-Then we utilize arch-chroot:
+**Arch-chroot:**
+
 ```bash
  #!/bin/bash
 
