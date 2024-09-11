@@ -1,155 +1,44 @@
-#File: $HOME/.config/wayfire.ini
-#Author: 4ndr0666
-#Edited: 09-11-24
-#
-# --- // 4ndr0666_WAYFIRE.INI// ========
-
-
-#
-# --- TIPS_&_TRICKS ========
-#
-# - Wayfire searches for a config file in the following locations, in this order:
-#    1. $WAYFIRE_CONFIG_FILE
-#    2. $XDG_CONFIG_HOME/wayfire.ini
-#    3. ~/.config/wayfire.ini
-#
-# - In order to obtain the proper app info use this command:
-#    $ WAYLAND_DEBUG=1 alacritty 2>&1 | kak
-#
-# - "Hot corners" are a thing where 100x10 is W x H of the corner, and 1000
-#   is the amount of time the input needs to be inside of said corner:
-#
-#    hotspot top-left 100x10 1000
-#
-# - Actions can be reused by creating group key bindings seperated with "|",
-#   like this:
-#
-#    <super> KEY_E | <ctrl> <alt> BTN_EXTRA | pinch in 4
-#
-# - The shell command is executed with SH on startup so the proper
-#   syntax for autostart is:
-#
-#   autostart.<program-id> <shell-command>
-#
-#
-# --- COMMAND_CRITERIA ========
-#
-# Window values:
-#  title [is|contains] "<string>"
-#  app_id [is|contains] "<string>"
-#  type is ["toplevel"|"x-or"|"unmanaged"|"background"|"panel"|"overlay"|"unknown"]
-#  focusable is [true|false]
-#  role is ["TOPLEVEL"|"UNMANAGED"|"DESKTOP_ENVIRONMENT"]
-#  fullscreen is [true|false]
-#  activated is [true|false]
-#  minimized is [true|false]
-#  maximized is [true|false]
-#  floating is [true|false]
-#  tiled-left is [true|false]
-#  tiled-right is [true|false]
-#  tiled-top is [true|false]
-#  tiled-bottom is [true|false]
-#
-#
-# --- RULES_SYNTAX ========
-#  rule_name = on <event> if <criteria> then <if_command> [else <else_command>]
-#  rule_name = on <event> then <command>
-#
-# Possible events:
-#  • created: A new window has been opened.
-#  • (un)maximized: A window has been maximized/unmaximized.
-#  • minimized: A window has been minimized.
-#  • fullscreened: A window has been fullscreened.
-#
-# Possible commands:
-#  • set alpha <alpha>: Set window opacity in range [0, 1].
-#  • set geometry X Y W H: Set window geometry.
-#  • (un)maximize: Maximize or unmaximize the window.
-#  • (un)minimize: Minimize or restore the window.
-#  • move X Y: Move the window to (X,Y).
-#  • resize W H: Resize the window to size (W, H).
-#  • snap <slot>: Snap the view to a particular slot using the grid plugin. Available slots: top_left, top, top_right, right, bottom_right, bottom, bottom_left, left, center(same as
-#    maximize).
-#  • assign_workspace X Y: Move the view to workspace with coordinates (X,Y). The top-left workspace has coordinate (0,0).
-#  • sticky: sticky across all workspaces.
-#  • start_on_output: start window on specific output. example: start_on_output "HDMI-A-1"
-#
-# For example, the following rules will maximize each new window
-# of alacritty and set the opacity to 50%:
-#
-# [window-rules]
-# rule_1 = on created if app_id is "Alacritty" then maximize
-# rule_2 = on created if app_id is "Alacritty" then set alpha 0.5
-#
-#
-# --- BOOLEAN_VALUES ========
-#  title [is|contains] "<string>"
-#  app_id [is|contains] "<string>"
-#  type is ["toplevel"|"x-or"|"unmanaged"|"background"|"panel"|"overlay"|"unknown"]
-#  focusable is [true|false]
-#  role is ["TOPLEVEL"|"UNMANAGED"|"DESKTOP_ENVIRONMENT"]
-#  fullscreen is [true|false]
-#  activated is [true|false]
-#  minimized is [true|false]
-#  maximized is [true|false]
-#  floating is [true|false]
-#  tiled-left is [true|false]
-#  tiled-right is [true|false]
-#  tiled-top is [true|false]
-#  tiled-bottom is [true|false][alpha]
-#
-
 [alpha]
 min_value = 1.000000
 modifier = <alt> <super> 
 
 [animate]
-open_animation = zoom
 close_animation = zoom
-duration = 200
+duration = 200ms circle
 enabled_for = (type is "toplevel" | (type is "x-or" & focusable is true) | app_id is "wofi" | app_id is "waybar" | app_id contains "Rofi")
-fade_duration = 200
+fade_duration = 200ms circle
 fade_enabled_for = none
 fire_color = \#B22303FF
-fire_duration = 300
+fire_duration = 300ms circle
 fire_enabled_for = none
 fire_particle_size = 16.000000
 fire_particles = 2000
+open_animation = zoom
 random_fire_color = false
-startup_duration = 200
-zoom_duration = 200
+startup_duration = 200ms circle
+zoom_duration = 200ms circle
 zoom_enabled_for = (type is "toplevel" | (type is "x-or" & focusable is true) | app_id is "wofi" | app_id is "waybar" | app_id contains "Rofi")
 
 [autostart]
 0_environment = dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=wayfire
-polkit-gnome = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 apply_themes = ~/.config/wayfire/scripts/gtkthemes &>/dev/null &
-set_wallpaper = ~/.config/wayfire/scripts/wallpaper &
-start_notify = ~/.config/wayfire/scripts/notifications &
-#bar = waybar
-start_statusbar = ~/.config/wayfire/scripts/statusbar &
+autostart_wf_shell = false
 clipman-restore = clipman restore
 clipman-store = wl-paste -t text --watch clipman store
-#start_mpd = mpd &
-autostart_wf_shell = false
 dex = dex -a -s /etc/xdg/autostart/:~/.config/autostart/:~/.config/shellz/run-wayfire
 gnome-keyring = gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh
 idle = swayidle before-sleep ~/.config/wayfire/scripts/lockscreen
 nm = nm-applet --indicator
 notifications = ~/.config/wayfire/scripts/notifications &>/dev/null &
 outputs = kanshi
+polkit-gnome = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #portal = /usr/libexec/xdg-desktop-portal
 portal = /usr/lib/xdg-desktop-portal --replace & /usr/lib/xdg-desktop-portal-wlr
 pactl = pactl load-module module-switch-on-connect
 
-#[background-view]
-#command = mpv --loop=inf
-#file =
-
-#[bench]
-#average_frames = 1
-#frames_per_update = 3
-#position  = top_center
+set_wallpaper = ~/.config/wayfire/scripts/wallpaper &
+start_notify = ~/.config/wayfire/scripts/notifications &
+start_statusbar = ~/.config/wayfire/scripts/statusbar &
 
 [command]
 binding_alacritty = <super> KEY_ENTER
@@ -240,55 +129,32 @@ repeatable_binding_media-prev = KEY_PREVIOUSSONG
 repeatable_binding_volume_down = KEY_VOLUMEDOWN
 repeatable_binding_volume_up = KEY_VOLUMEUP
 
-#[crosshair]
-#line_color = \#FF0000FF
-#line_width = 2
-
 [core]
-background_color = 0.070 0.074 0.086 1.0
+background_color = 0.059 0.059 0.105 1.0
 close_top_view = <super> KEY_Q
-# === // BTN_MIDDLE toggles expo. Remove it here dont allow modifiers
 focus_button_with_modifiers = false
 focus_buttons = BTN_LEFT
 focus_buttons_passthrough = true
-# === //
 max_render_time = -1
-plugins = ipc ipc-rules alpha animate autostart command decoration expo fast-switcher foreign-toplevel focus-request follow-focus force-fullscreen grid hide-cursor join-views mag move place preserve-output resize session-lock scale scale-title-filter simple-tile switcher vswitch vswipe wf-kill workspace-names window-rules wrot wm-actions winzoom zoom        
+plugins = alpha animate autostart command decoration expo fast-switcher foreign-toplevel grid move place resize vswitch window-rules wrot zoom scale wm-actions winzoom scale-title-filter focus-request follow-focus force-fullscreen mag session-lock simple-tile hide-cursor wf-kill workspace-names ipc-rules ipc-server stipc preserve-output ipc
 preferred_decoration_mode = server
 transaction_timeout = 100
 vheight = 3
 vwidth = 3
 xwayland = true
 
-
-#[cube]
-#activate =
-#background = 0.004 0.015 0.050 1.0
-#background_mode = simple
-#cubemap_image =
-#deform = 0
-#initial_animation = 350
-#light = true
-#speed_spin_horiz = 0.02
-#speed_spin_vert = 0.02
-#speed_zoom = 0.07
-#zoom = 0.1
-# Switch to the next or previous workspace.
-#rotate_left = <ctrl> <alt> KEY_LEFT
-#rotate_right = <ctrl> <alt> KEY_RIGHT
-
 [decoration]
-active_color = 0.184 0.420 0.690 1.0
+active_color = 0.576 0.380 0.416 1.0
 border_size = 2
 button_order = minimize maximize close
 font = MesloLGS NF
 ignore_views = none
-inactive_color = 0.113 0.121 0.141 1.0
+inactive_color = 0.094 0.094 0.168 1.0
 title_height = 0
 
 [expo]
-background = 0.070 0.074 0.086 1.0
-duration = 200
+background = 0.059 0.059 0.105 1.0
+duration = 200ms circle
 inactive_brightness = 0.700000
 keyboard_interaction = true
 offset = 10
@@ -305,18 +171,9 @@ toggle = <super>  | BTN_MIDDLE
 transition_length = 150
 
 [fast-switcher]
-activate = <super> KEY_H
-activate_backward = <super> KEY_L
+activate = <super> KEY_TAB
+activate_backward =
 inactive_alpha = 0.700000
-
-[switcher]
-gesture_toggle = edge-swipe down 3
-next_view = <super> KEY_TAB
-prev_view = 
-speed = 200
-touch_sensitivity = 1.000000
-view_thumbnail_rotation = 30
-view_thumbnail_scale = 1.000000
 
 #[fisheye]
 #radius = 450.000000
@@ -369,10 +226,10 @@ y_skew = 0.000000
 slot_b = <super> KEY_J | <super> KEY_KP2
 slot_bl = <super> KEY_KP1
 slot_br = <super> KEY_KP3
-slot_c = <super> KEY_KP5
-slot_l = <alt> KEY_H | <super> KEY_LEFT | <super> KEY_KP4
-slot_r = <alt> KEY_L | <super> KEY_RIGHT | <super> KEY_KP6
-slot_t = <super> KEY_UP | <super> KEY_K | <super> KEY_KP8
+slot_c = <super> KEY_UP | <super> KEY_KP5
+slot_l = <super> KEY_H | <super> KEY_KP4
+slot_r = <super> KEY_L | <super> KEY_KP6
+slot_t = <super> KEY_K | <super> KEY_KP8
 slot_tl = <super> KEY_KP7
 slot_tr = <super> KEY_KP9
 type = none
@@ -399,10 +256,12 @@ kb_repeat_rate = 50
 left_handed_mode = false
 middle_emulation = false
 modifier_binding_timeout = 400
+# --- // Other profiles contain trackers by nature and use mem, so kill it.
 #mouse_accel_profile = flat
-
+# --- //
 mouse_accel_profile = default
 mouse_cursor_speed = 0.000000
+mouse_natural_scroll = false
 mouse_scroll_speed = 1.000000
 natural_scroll = false
 scroll_method = default
@@ -416,7 +275,6 @@ xkb_model = pc105
 xkb_options = caps:escape
 xkb_rules = evdev
 xkb_variant = 
-
 [input-method-v1]
 enable_text_input_v1 = true
 enable_text_input_v3 = true
@@ -429,7 +287,6 @@ enable_text_input_v3 = true
 default_height = 800
 toggle = <shift> <super> KEY_M
 zoom_level = 100
-[join-views]
 
 [move]
 activate = <super> BTN_LEFT
@@ -496,8 +353,8 @@ text_color = \#15FFFFFF
 title_font_size = 16
 title_overlay = all
 title_position = center
-toggle = 
-toggle_all = hotspot bottom-left 100x10 1000
+toggle = <super> KEY_V
+toggle_all = <shift> <super> KEY_V | hotspot bottom-left 100x10 1000
 
 [scale-title-filter]
 bg_color = \#00000080
@@ -505,7 +362,7 @@ case_sensitive = false
 font_size = 30
 overlay = true
 share_filter = false
-text_color = \#15FFFF
+text_color = \#CCCCCCCC
 
 [session-lock]
 
@@ -516,47 +373,44 @@ keep_fullscreen_on_adjacent = true
 animation_duration = 0
 button_move = <super> BTN_LEFT
 button_resize = <super> BTN_RIGHT
+inner_gap_size = 5
+
+
 preview_base_border = \#404080CC
 preview_base_color = \#8080FF80
 preview_border_width = 3
-inner_gap_size = 5
-outer_horiz_gap_size = 0
-outer_vert_gap_size = 0
+
+#[simple-tile layouts]
 # --- //Dwindle_layout
-split_ratio = 0.67  # Master area takes up 2/3 of the screen
-key_focus_above = <super> KEY_UP
-key_focus_below = <super> KEY_DOWN
-key_focus_left = <super> KEY_LEFT
-key_focus_right = <super> KEY_RIGHT
-key_toggle = <super> KEY_SPACE
-# --- //Normal_layout
-#split_ratio = 0.500000
-#key_focus_above = <super> KEY_K
-#key_focus_below = <super> KEY_J
-#key_focus_left = <super> KEY_H
-#key_focus_right = <super> KEY_L
+#split_ratio = 0.67  # Master area takes up 2/3 of the screen
+#key_focus_above = <super> KEY_UP
+#key_focus_below = <super> KEY_DOWN
+#key_focus_left = <super> KEY_LEFT
+#key_focus_right = <super> KEY_RIGHT
 #key_toggle = <super> KEY_SPACE
 
+# --- //Normal_layout
+split_ratio = 0.500000
+key_focus_above = <super> KEY_K
+key_focus_below = <super> KEY_J
+key_focus_left = <super> KEY_H
+key_focus_right = <super> KEY_L
+key_toggle = <super> KEY_SPACE
+outer_horiz_gap_size = 0
+outer_vert_gap_size = 0
 tile_by_default = all
-#(type is "x-or" & focusable is false) | (type is "toplevel" & focusable is false)"
 #(type is "toplevel" & focusable is true) | (type is "x-or" & focusable is true)
-#tile_by_default = (type is "panel" & focusable is false) | (type is "background" & focusable is false) | (role is "DESKTOP_ENVIRONMENT" & focusable is false)
 
 
-[vswipe]
-background = 0.004 0.015 0.050 1.0
-delta_threshold = 24.000000
-duration = 180
-enable_free_movement = false
-enable_horizontal = true
-enable_smooth_transition = true
-enable_vertical = false
-fingers = 3
-gap = 32.000000
-speed_cap = 0.050000
-speed_factor = 256.000000
-threshold = 0.350000
-
+# --- //My First Layout
+#key_focus_above = <super> KEY_UP
+#key_focus_below = <super> KEY_DOWN
+#key_focus_left = <super> KEY_LEFT
+#key_focus_right = <super> KEY_RIGHT
+#key_toggle = <super> KEY_SPACE
+#outer_horiz_gap_size = 10
+#outer_vert_gap_size = 10
+#tile_by_default = (type is "x-or" & focusable is false) | (type is "toplevel" & focusable is false)"
 [vswitch]
 duration = 20
 background = 0.059 0.059 0.105 1.0
@@ -624,36 +478,48 @@ send_to_wset_3 = <super> <shift> <alt> KEY_3
 
 [wf-kill]
 
-
+[wf-info]
 
 [window-rules]
-rule_001 = on created if app_id is "thunar" then set alpha 0.8
-rule_002 = on created if app_id is "thunar" then set geometry 236 83 886 552
-rule_003 = on created if app_id is  "mpv" then set geometry 1304 717 812 476
-rule_004 = on created if app_id is  "mpv" then set sticky
-rule_005 = on created if app_id is "Alacritty" then set alpha 0.8
-rule_006 = on created if app_id is "brave-browser-beta" then set alpha 1.0
-rule_006 = on created if app_id is "brave-browser-beta" then set geometry 241 58 1865 1217
-rule_007 = on created if app_id is "lite-xl" then set alpha 0.8
-rule_008 = on created if app_id is "mpv" then always_on_top 
-rule_009 = on created if app_id is "pcmanfm" then set alpha 0.8
-rule_009 = on created if app_id is "pcmanfm" then floating is true
-rule_013 = on created if title contains "Picture-in-Picture" then set always_on_top
-rule_014 = on created if app_id is "st" then set alpha 0.8
-rule_015 = on created if app_id is "lite-xl" then set geometry 1121 53 1095 1214
-rule_016 = on created if app_id is "lite-xl" then set alpha 0.8
-rule_017 = on created if app_id is "pcmanfm" then move 270 100
-rule_018 = on created if app_id is "io.github.celluloid_player.Celluloid" then set geometry 1231 677 138 512
-rule_019 = on created if app_id is "Alacritty" then set geometry 285 55 1767 1229
-rule_0020 = on created if title contains "Rename" then set geometry 485 241 418 215
-rule_0021 = on created if title contains "Properties" then set geometry 378 91 572 541
+rule_001 = on created if app_id is "thunar" then set geometry 236 83 886 552
+rule_002 = on created if app_id is "thunar" then set alpha 0.8
+rule_0021 = on created if title contains "Rename" then set geometry 485 241 418 215
+rule_0022 = on created if title contains "Properties" then set geometry 378 91 572 541
+rule_004 = on created if title is "Downloads - Thunar" then assign_workspace 2 0
+rule_005 = on created if title is "media - Thunar" then assign_workspace 2 2
+rule_006 = on created if app_id is "Alacritty" then set geometry 285 55 1767 1229
+rule_007 = on created if app_id is "Alacritty" then set alpha 0.8
+rule_012 = on created if app_id is "mpv" then set geometry 1304 717 812 476
+rule_013 = on created if app_id is "mpv" then assign_workspace 0 0
+rule_014 = on created if app_id is "brave-browser-beta" then set geometry 241 58 1865 1217
+rule_015 = on created if app_id is "brave-browser-beta" then set alpha 1.0
+rule_016 = on created if app_id is "brave-browser-beta" then assign_workspace 1 0
+rule_020 = on created if app_id is "lite-xl" then set geometry 1121 53 1095 1214
+rule_021 = on created if app_id is "lite-xl" then set alpha 0.8
+rule_022 = on created if app_id is "lite-xl" then assign_workspace 2 0
+rule_026 = on created if app_id is "nwg-look" then set geometry 270 129 821 519
+rule_027 = on created if app_id is "nwg-look" then set alpha 0.8
+rule_028 = on created if app_id is "nwg-look" then assign_workspace 0 1
+rule_032 = on created if app_id is "pavucontrol" then set geometry 280 710 800 500
+rule_033 = on created if app_id is "pavucontrol" then set alpha 0.9
+rule_034 = on created if app_id is "pavucontrol" then assign_workspace 0 1
+rule_042 = on created if app_id is "foot" then set geometry 239 637 803 527
+rule_043 = on created if app_id is "foot" then set alpha 0.8
+rule_044 = on created if app_id is "foot" then assign_workspace 2 0
+rule_051 = on created if app_id is "pcmanfm" then move 270 100
+rule_052 = on created if app_id is "pcmanfm" then assign_workspace 2 2
+rule_055 = on created if app_id is "Conky" then set sticky
+rule_068 = on created if app_id is "io.github.celluloid_player.Celluloid" then set geometry 1231 677 138 512
+rule_075 = on created if title is "Picture-in-Picture" then set always_on_top
+rule_076 = on created if app_id is "st" then set geometry 285 55 1767 1229
+rule_077 = on created if app_id is "st" then set alpha 0.8
 
 [winzoom]
 dec_x_binding = <ctrl> <super> KEY_LEFT
 dec_y_binding = <ctrl> <super> KEY_UP
 inc_x_binding = <ctrl> <super> KEY_RIGHT
 inc_y_binding = <ctrl> <super> KEY_DOWN
-modifier = <ctrl> <super>
+modifier = <ctrl> <super> 
 nearest_filtering = false
 preserve_aspect = true
 zoom_step = 0.100000
@@ -665,7 +531,7 @@ activate = <super> BTN_RIGHT
 minimize = <shift> <super> KEY_F5
 send_to_back = <shift> <super> KEY_F9
 toggle_always_on_top = <shift> <super> KEY_F7
-toggle_fullscreen =
+toggle_fullscreen = <shift> <super> KEY_F
 toggle_maximize = <shift> <super> KEY_F6
 toggle_showdesktop = <shift> <super> KEY_F10
 toggle_sticky = <shift> <super> KEY_F8
@@ -688,14 +554,14 @@ remove_output_limits = false
 use_external_output_configuration = false
 
 [workspace-names]
-background_color = 0.070 0.074 0.086 1.0
+background_color = 0.059 0.059 0.105 1.0
 background_radius = 30.000000
 display_duration = 500
-font = MesloLGS NF
+font = sans-serif
 margin = 0
 position = center
 show_option_names = false
-text_color = \#15FFFFFF
+text_color = \#FFFFFFFF
 
 [wrot]
 activate = <shift> <super> BTN_LEFT
@@ -711,7 +577,7 @@ sensitivity = 24
 
 [zoom]
 activate = <ctrl> <alt> BTN_LEFT
-background = 0.070 0.074 0.086 1.0
+background = 0.059 0.059 0.105 1.0
 background_mode = simple
 deform = 0
 initial_animation = 350
