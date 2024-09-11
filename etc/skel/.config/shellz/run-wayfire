@@ -2,7 +2,7 @@
 
 #File: run-wayfire
 #Author: 4ndr0666
-#Edited: 5-19-24
+#Edited: 09-11-24
 # Exports environment variables for wayfire and launches it.
 #
 # --- // RUN-WAYFIRE // ========
@@ -12,40 +12,83 @@
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=wayfire
 export XDG_CURRENT_DESKTOP=wayfire
-export XDG_CURRENT_SESSION=wayfire
 
+# --- // EXPLICITY_SET_WAYFIRE_DIRS:
+XDG_DATA_DIRS=$XDG_DATA_DIRS
+
+if [ -d "XDG_DATA_HOME" ]; then
+    DEFAULT_LOG_DIR=$XDG_DATA_HOME/wayfire
+else
+    DFAULT_LOG_DIR=$HOME/.local/share/wayfire
+fi
+
+# --- // SETUP_LOGGING:
+mkdir -p $DEFAULT_LOG_DIR
+if [ $? != 0 ]; then
+    echo "Could not create log directory $DEFAULT_LOG_DIR"
+    echo "Using stdout as log"
+    wayfire "$@"
+ elif [ ! -z "$WAYLAND_DISPLAY" ] || [ ! -z "$DISPLAY" ]; then
+     echo "RUnning nested, using stdout as log"
+     wayfire "$@"
+ else
+     LOG_FILE=$DEFAULT_LOG_DIR/wayfire.log
+     if [ -f $LOG_FILE ]; then
+         cp $LOG_FILE $LOG_FILE.old
+     fi
+     echo "Using log file: $LOG_FILE"
+     wayfire "@" &> $LOG_FILE
+ fi
+ 
 # --- // GTK_VARIABLES:
-export TDESKTOP_DISABLE_GTK_INTEGRATION=1
-export CLUTTER_BACKEND=wayland,x11
-export BEMENU_BACKEND=wayland
-
-
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-export QT_QPA_PLATFORM=wayland
-#export QT_WAYLAND_FORCE_DPI=physical #uncomment this to use monitor's DPI
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
+#export TDESKTOP_DISABLE_GTK_INTEGRATION=1
 
-export ELM_DISPLAY=wl
+# --- // clutter
+#export CLUTTER_BACKEND=wayland,x11
+
+# --- // elementary
 export ECORE_EVAS_ENGINE=wayland-egl
 export ELM_ENGINE=wayland_egl
-export ELM_ACCEL=opengl
+#export ELM_DISPLAY=wl
+#export ELM_ACCEL=opengl
 #export ELM_SCALE=1
-export SDL_VIDEODRIVER=wayland
+
+# --- // java
+export QT_QPA_PLATFORMTHEME=qt5ct
+#export AWT_TOOLKIT="MTookit wmname LG3D"
 export _JAVA_AWT_WM_NONREPARENTING=1
-export SAL_USE_VCLPLUGIN=gtk3
-
-export GDK_BACKEND=wayland,x11
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel ${_JAVA_OPTIONS}"
 export NO_AT_BRIDGE=1
-export WINIT_UNIX_BACKEND=wayland
+export BEMENU_BACKEND=wayland
 
+# --- // Qt
+export QT_QPA_PLATFORM=wayland
+#wayland-egl # For Nvidia
+#export QT_WAYLAND_FORCE_DPI=physical # Use monitor's DPI
+#export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+#export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
+# --- // sdl
+#export SDL_VIDEODRIVER=wayland
+#export SAL_USE_VCLPLUGIN=gtk3
+
+# --- // backend
+export GDK_BACKEND=wayland,x11
+#export WINIT_UNIX_BACKEND=wayland
+
+# --- // electron
 export ELECTRON_OZONE_PLATFORM_HINT=wayland
+#wayland-egl # For ndvidia
+
+# --- // IPC
+export WAYFIRE_SOCKET=/tmp/wayfire-wayland-1.socket
 
 # --- // SYSTEMD_DBUS:
-eval "$(dbus-launch --sh-syntax)"
+if ! eval "$(dbus-launch --sh-syntax)"; then
+    echo "Failed to launch D-Bus session bus."
+    exit 1
+fi
 export DBUS_SESSION_BUS_ADDRESS
 export DBUS_SESSION_BUS_PID
 #xhost + </dev/null &>/dev/null &
@@ -53,7 +96,7 @@ export DBUS_SESSION_BUS_PID
 #xhost +SI:localuser:root
 
 # --- // EXEC_WAYFIRE:
-sleep 0.5;
+sleep 0.5
 
 if ! command -v wayfire &> /dev/null; then
     echo "Wayfire could not be found, please install it."
