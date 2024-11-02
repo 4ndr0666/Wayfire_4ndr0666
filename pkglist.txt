@@ -66,12 +66,10 @@ archcraft-icons-white
 archcraft-icons-win11
 archcraft-icons-zafiro
 archcraft-mirrorlist
-archcraft-neofetch
 archcraft-plymouth-theme
 archcraft-randr
 archcraft-scripts
 archcraft-sway
-archcraft-wayfire
 archinstall
 archlinux-contrib
 aria2
@@ -82,14 +80,12 @@ asar
 aspell
 aspell-en
 atool
-atril
 aura-bin
 auracle-git
 autoconf
 autojump-git
 autokey-common
 automake
-avcut-git
 avisynthplus
 b43-fwcutter
 babl
@@ -108,7 +104,6 @@ bleachbit
 boost
 botan
 breeze-adapta-cursor-theme-git
-brltty
 broadcom-wl
 browser-vacuum
 btop
@@ -116,7 +111,6 @@ btrfs-progs
 bzip2
 ca-certificates
 cairo-perl
-caja
 calcurse
 catch2
 chaotic-keyring
@@ -126,7 +120,6 @@ ckbcomp
 cleanupdate-git
 clipman
 clonezilla
-cloud-init
 cmake
 colord
 converseen
@@ -134,7 +127,6 @@ cpupower
 cronie
 cryptsetup
 curlftpfs
-cyberdrop-dl
 cylon
 cython
 dconf-editor
@@ -168,7 +160,6 @@ ethtool
 evtest
 exfatprogs
 expac
-expressvpn
 eza
 f2fs-tools
 fakeroot
@@ -181,8 +172,6 @@ ffmpegthumbs
 ffnvcodec-headers
 find-the-command-git
 flex
-foomatic-db
-foomatic-db-engine
 foot-terminfo
 foremost
 fsarchiver
@@ -221,7 +210,6 @@ gnome-calculator
 gnome-disk-utility
 gnome-epub-thumbnailer
 gnome-keyring
-gnu-netcat
 gpart
 gparted
 gpm
@@ -239,10 +227,8 @@ gst-python
 gstreamer
 gstreamer-meta
 gtk-engine-murrine
-gtk3-nocsd-git
 gtksourceview5
 gufw
-gutenprint
 gvfs
 gvfs-afc
 gvfs-google
@@ -299,7 +285,7 @@ kvantum-theme-sweet-git
 kvantum-theme-vimix-git
 ladspa
 less
-lf
+lf-git
 lhasa
 lib32-at-spi2-core
 lib32-brotli
@@ -329,7 +315,6 @@ lib32-keyutils
 lib32-krb5
 lib32-lcms2
 lib32-libcap
-lib32-libcups
 lib32-libdatrie
 lib32-libdecor
 lib32-libdrm
@@ -555,11 +540,9 @@ pamixer
 partclone
 parted
 partimage
-paru
 pastel
 patch
 pavucontrol
-pcmanfm
 pcsclite
 peerflix
 perl-cairo-gobject
@@ -574,10 +557,6 @@ perl-xml-parser
 perl-xml-writer
 pinentry-bemenu
 pinentry-dmenu
-pipewire
-pipewire-alsa
-pipewire-jack
-pipewire-pulse
 pkgconf
 pkgfile
 plymouth
@@ -585,18 +564,10 @@ polkit
 polkit-gnome
 polkit-qt5
 postgresql-libs
-powerpill
 powertop
 ppp
 pptpclient
 prettier
-projectm
-pulseaudio-bluetooth
-pulseaudio-control
-pulseaudio-ctl
-pulseaudio-nextsink
-pulseaudio-support
-pulsemixer
 pv
 pyalpm
 python-annotated-types
@@ -623,7 +594,6 @@ python-termcolor
 python-tiktoken
 python-vulkan
 python-wheel
-qemu-guest-agent
 qt5-wayland
 qt5ct
 qt6-3d
@@ -688,7 +658,6 @@ streamlink
 sudo
 svp-bin
 sxiv
-syslinux
 systemd-cleanup-pacman-hook
 systemd-oomd-defaults
 systemd-resolvconf
@@ -710,9 +679,6 @@ tmpwatch
 tmux
 topgrade
 totem-pl-parser
-tpm2-abrmd
-tpm2-tools
-tpm2-tss
 traceroute
 trash-cli
 trizen-git
@@ -768,7 +734,6 @@ whois
 wikiman
 wireless-regdb
 wireless_tools
-wireplumber
 wlr-protocols
 wlroots0.17
 wlsunset
@@ -782,7 +747,6 @@ xcape
 xclip
 xcolor
 xcompmgr
-xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-user-dirs-gtk
 xf86-input-libinput
@@ -818,7 +782,6 @@ yt-dlp
 zenity
 zip
 zps
-zram-generator
 zsh
 zsh-autocomplete
 zsh-autosuggestions-git

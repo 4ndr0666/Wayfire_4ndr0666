@@ -242,7 +242,7 @@ command_theme = ~/.config/wayfire/theme/theme.sh --pywal
 command_volume_down = ~/.config/wayfire/scripts/volume --dec
 #pactl set-sink-volume @DEFAULT_SINK@ -5%
 command_volume_up = ~/.config/wayfire/scripts/volume --inc
-command_web = sh -c 'brave-beta --ozone-platform=wayland --use-gl=egl --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterize --disable-crash-reporter & echo $! > /tmp/brave_pid'
+command_web = sh -c 'brave-beta --ozone-platform=wayland --use-gl=egl --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterize --disable-crash-reporter=beta --disable-middlebuttonclickautoscroll --disable-vulkan --disable-caststreamingvp8  & echo $! > /tmp/brave_pid'
 repeatable_binding_volume_down = KEY_VOLUMEDOWN
 repeatable_binding_volume_up = KEY_VOLUMEUP
 
