@@ -315,7 +315,7 @@ libopenraw
 libsaasound
 libtheora
 libusb-compat
-libvpx-full-git
+libvpx
 libva-intel-driver
 libva-mesa-driver
 libva-utils
@@ -643,7 +643,7 @@ vulkan-swrast
 vulkan-tools
 vvenc
 w3m
-waf-git
+waf
 wayfire-git
 wayfire-plugins-extra-git
 wcm-git
