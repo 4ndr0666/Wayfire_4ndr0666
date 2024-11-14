@@ -44,7 +44,6 @@ archcraft-gtk-theme-juno
 archcraft-gtk-theme-kripton
 archcraft-gtk-theme-manhattan
 archcraft-gtk-theme-nordic
-archcraft-gtk-theme-orchis
 archcraft-gtk-theme-rick
 archcraft-gtk-theme-slime
 archcraft-gtk-theme-spark
@@ -53,8 +52,6 @@ archcraft-gtk-theme-wave
 archcraft-gtk-theme-white
 archcraft-gtk-theme-windows
 archcraft-help-wse
-archcraft-hooks
-archcraft-hyprland
 archcraft-icons-arc
 archcraft-icons-breeze
 archcraft-icons-hack
@@ -68,14 +65,10 @@ archcraft-icons-white
 archcraft-icons-win11
 archcraft-icons-zafiro
 archcraft-mirrorlist
-archcraft-neofetch
-archcraft-newm
 archcraft-plymouth-theme
 archcraft-ranger
 archcraft-scripts
-archcraft-sddm-theme
-archcraft-sway
-archcraft-wayfire
+
 atril
 archinstall
 archlinux-contrib
@@ -118,7 +111,6 @@ breeze-adapta-cursor-theme-git
 broadcom-wl
 browser-vacuum
 btop
-btrfs-assistant-git
 btrfs-progs
 bzip2
 ca-certificates
@@ -166,7 +158,6 @@ dunst
 dupeguru
 e2fsprogs
 earlyoom
-easyeffects
 edk2-shell
 efibootmgr
 egl-wayland
@@ -176,10 +167,10 @@ engrampa
 entr
 etc-update
 ethtool
+evtest
 exfatprogs
 expac
 expressvpn
-extra-cmake-modules
 eza
 f2fs-tools
 fakeroot
@@ -240,7 +231,6 @@ gnome-keyring
 gnome-themes-extra
 go
 
-gotorrent-bin
 gpart
 gparted
 gpm
@@ -321,8 +311,10 @@ kvantum-qt5
 kvantum-theme-catppuccin-git
 kvantum-theme-fluent-git
 kvantum-theme-materia
+kvantum-theme-nordic-git
 kvantum-theme-orchis-git
 kvantum-theme-qogir-git
+kvantum-theme-sweet-git
 kvantum-theme-vimix-git
 ladspa
 ldb
@@ -452,10 +444,11 @@ nsxiv
 ntfs-3g
 ntp
 nuspell
-nvidia
-nvidia-settings
 nvme-cli
-nyaa-bin
+nwg-clipman
+nwg-drawer
+nwg-launchers
+nwg-look
 ocs-url
 oomox-qt6-styleplugin-git
 open-iscsi
@@ -473,11 +466,9 @@ openssh
 openssl-1.0
 openssl-1.1
 openucc
-openvino-git
 openvpn
 os-prober
 otf-font-awesome
-otf-libertinus
 p7zip
 pac-util-git
 pacaur
@@ -539,7 +530,6 @@ python-wayfire
 qt5ct
 qt6ct
 
-ranger
 reboot-arch-btw
 refind
 reflector
@@ -556,7 +546,7 @@ rxvt-unicode-terminfo
 scalpel-git
 schroedinger
 screen
-
+sddm-slice-git
 sdparm
 sequoia-sq
 seahorse
@@ -619,7 +609,6 @@ transmission-cli
 trash-cli
 trizen-git
 ttf-dejavu
-ttf-dejavu-nerd
 ttf-fantasque-sans-mono
 ttf-fira-sans
 ttf-firacode-nerd
@@ -665,7 +654,6 @@ vapoursynth-plugin-svpflow1
 vapoursynth-plugin-svpflow2-bin
 vapoursynth-plugin-vivtc-git
 vdpauinfo
-vdx
 ventoy-bin
 vi
 viewnior
@@ -725,7 +713,10 @@ xl2tpd
 xorg-xhost
 xmlto
 xorg-xcursorgen
+xorg-xinit
 xorg-xinput
+xorg-xsetroot
+xorg-xwininfo
 xvidcore
 xz
 yad
@@ -733,12 +724,14 @@ yank
 yasm
 yay
 yoku-bin
+yaycache-hook
 youtube-dl-git
 
 
 yt-dlp
 zathura
 zathura-pdf-poppler
+zenity
 zip
 zps
 zramswap
@@ -752,5 +745,5 @@ zsh-history-substring-search-git
 zsh-sudo-git
 zsh-syntax-highlighting
 zsh-systemd-git
-zsh-theme-powerlevel10k-git
+zsh-you-should-use
 zstd
