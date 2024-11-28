@@ -7,20 +7,22 @@
 
 {
     "custom/terminal": {
-	"format": "",
-        "on-click": "~/.config/wayfire/waybar/scripts/alacritty",
-        "on-click-right": "~/.config/wayfire/waybar/scripts/st", 
+	"format": " ",
+        "on-click": "~/.config/wayfire/scripts/alacritty",
+        "on-click-right": "~/.config/wayfire/scripts/st",
         //"bash -c pkill -9 alacritty ; pkill -9 st",
     },
     "custom/filemanager": {
 	"format": "",
         "on-click": "thunar",
-        "on-click-right": "pcmanfm",
+        "on-click-right": "alacritty -e lf",
         //"on-click-right": "bash -c 'pkill -9 thunar ; pkill -9 pcmanfm ; pkill -9 lf",
     },
     "custom/brave": {
 	"format": "",
-        "on-click": "brave",
+        "on-click":"brave-beta --ozone-platform=wayland --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterize --disable-middlebuttonclickautoscroll",
+        //"brave-beta --ozone-platform=wayland --use-gl=egl --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterizer --disable-chrash-reporter",
+	"on-click-right": "min-browser",
     },
     "custom/keyboard-layout": {
         "format": " Cheat",
@@ -30,10 +32,10 @@
         "exec": "cat /tmp/recordingicon",
         "signal": 1,
         "return-type": "plain",
-        "format": "{🎥}",
+        "format": "🎥",
         "interval": 5,
         "tooltip": false
-    }, 
+    },
     "backlight": {
 		"interval": 2,
 		"align": 0,
@@ -51,8 +53,8 @@
         "smooth-scrolling-threshold": 1,
     },
     "custom/storage": {
-        "format": "/ {}",
-        "format-alt": "{percentage}% used",
+        "format": " / {}",
+        "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
         "on-click-right": "thunar /",
@@ -60,8 +62,8 @@
         "exec": "~/.config/wayfire/waybar/scripts/storage.sh",
     },
     "custom/storage2": {
-        "format": "/23.1 {}",
-        "format-alt": "{percentage}% used",
+        "format": " /23.1 {}",
+        "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
         "on-click-right": "thunar /23.1",
@@ -69,8 +71,8 @@
         "exec": "~/.config/wayfire/waybar/scripts/storage2.sh",
     },
     "custom/storage3": {
-        "format": "/Nas {}",
-        "format-alt": "{percentage}% used",
+        "format": " /Nas {}",
+        "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
         "on-click-right": "thunar /Nas",
@@ -78,8 +80,8 @@
         "exec": "~/.config/wayfire/waybar/scripts/storage3.sh",
     },
     "custom/storage4": {
-        "format": "/storage {}",
-        "format-alt": "{percentage}% used",
+        "format": " /storage {}",
+        "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
         "on-click-right": "thunar /storage",
@@ -87,24 +89,58 @@
         "exec": "~/.config/wayfire/waybar/scripts/storage4.sh",
     },
     "custom/storage5": {
-        "format": "/sto2 {}",
-        "format-alt": "{percentage}% used",
+        "format": " /sto2 {}",
+        "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
         "on-click-right": "thunar /sto2",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage5.sh",
     },
+    //"clock": {
+    //    "interval": 1,
+    //    "format": " {:%B %d  %H:%M}",
+    //    "format-alt": " {:%H:%M}",
+    //    "on-click-middle": "gnome-calendar",
+    //    "tooltip-format": "\n<span size='14pt' font='JetBrains Mono ExtraBold'>{calendar}</span>",
+    //    "calendar": {
+    //                "mode"          : "month",
+    //                "mode-mon-col"  : 3,
+    //                "on-scroll"     : 1,
+    //                "on-click-right": "mode",
+    //                "format": {
+    //                          "months":     "<span color='#5e81ac'><b>{}</b></span>",
+    //                          "days":       "<span color='#88c0d0'><b>{}</b></span>",
+    //                          "weekdays":   "<span color='#d08770'><b>{}</b></span>",
+    //                          "today":      "<span color='#bf616a'><b><u>{}</u></b></span>"
+    //                          }
+    //                }
+    //},
+
+	// waybar-clock
     "clock": {
-        "tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
+       //"tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 60,
-    	"align": 0,
-	    "rotate": 0,
+        "align": 0,
+        "rotate": 0,
         "format": " {:%I:%M %p %A | %b %d, %G}",
         //"format-alt": " {:%I:%M %p}",
         //"format-alt": " {:%A | %b %d, %G}"
         "on-click-right": "alacritty -e bashmount",
-        "on-click": "~/.config/waybar/scripts/OCV",
+        //"on-click": "~/.config/waybar/scripts/OCV",
+        "tooltip-format": "\n<span size='14pt' font='JetBrains Mono ExtraBold'>{calendar}</span>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#5e81ac'><b>{}</b></span>",
+                              "days":       "<span color='#88c0d0'><b>{}</b></span>",
+                              "weekdays":   "<span color='#d08770'><b>{}</b></span>",
+                              "today":      "<span color='#bf616a'><b><u>{}</u></b></span>"
+                              }
+                     }
     },
 
 	// waybar-custom
@@ -116,13 +152,13 @@
     },
     "cpu": {
         "format": "🖳{usage}%",
-        "on-click": "alacritty -e htop",
-	    "on-click-right": "alacritty -e btop",
+        "on-click": "sudo -i alacritty -e htop",
+	"on-click-right": "sudo -i alacritty -e btop",
     },
     "memory": {
         "format": "🖳{: >3}%",
-        "on-click": "alacritty -e htop",
-	    "on-click-right": "~/.config/wayfire/waybar/scripts/keyhint.sh",
+        "on-click": "alacritty -e sudo htop",
+	"on-click-right": "~/.config/wayfire/waybar/scripts/keyhint.sh",
     },
     //"memory": {
     //    "format": "🖴 {: >3}%",
@@ -139,7 +175,7 @@
          "on-click-right": "$HOME/.config/wayfire/scripts/rofi_runner",
     },
     "custom/updates": {
-        "format": "{} {icon}",
+        "format": " {} {icon}",
         "return-type": "json",
         "format-icons": {
             "has-updates": "󱍷",
@@ -149,10 +185,11 @@
         },
         "exec-if": "which waybar-module-pacman-updates",
         "exec": "waybar-module-pacman-updates",
-        "on-click": "alacritty -e garuda-update -a"
+        "on-click": "alacritty -e 4ndr0update"
     },
     "custom/power": {
-         "format": "襤",
+         "format": "💀",
+         //"format": " ",
          "tooltip": false,
          //"on-click": "nwgbar"
          //"on-click": "$HOME/.config/wayfire/scripts/wlogout",
@@ -168,7 +205,7 @@
              "activated": "",
              "deactivated": ""
          },
-        // "timeout": 30
+         "timeout": 30
     },
 
 	// waybar-inhibitor
@@ -312,7 +349,7 @@
          "all-outputs": false,
          "active-first": false,
          "icon-size": 24,
-         "icon-theme": "Archcraft-Dark",
+         "icon-theme": "Zafiro",
          "tooltip-format": "{title}",
          //"ignore-list": [
          //    "Alacritty"
@@ -321,9 +358,9 @@
               "firefoxdeveloperedition": "firefox-developer-edition"
          },
          "on-click": "minimize-raise",
-         //"on-click-middle": "close",
-         "on-click-right": "restore",
-         //"on-update": "",
+         "on-click-middle": "",
+         "on-click-right": "close",
+         "on-update": "",
     },
     
 	// waybar-wlr-workspaces

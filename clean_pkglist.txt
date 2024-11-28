@@ -165,7 +165,7 @@ fastfetch
 fatresize
 fd
 feh
-ffmpeg-full-git
+ffmpeg-full
 ffmpegthumbnailer
 ffmpegthumbs
 ffms2
@@ -190,7 +190,7 @@ garuda-network-assistant
 garuda-settings-manager
 garuda-setup-assistant
 garuda-update
-garuda-video-linux-config
+#garuda-video-linux-config
 garuda-welcome
 gavl
 gcc
@@ -315,7 +315,7 @@ libopenraw
 libsaasound
 libtheora
 libusb-compat
-libvpx
+libvpx-full-git
 libva-intel-driver
 libva-mesa-driver
 libva-utils
@@ -331,8 +331,8 @@ linux-firmware-marvell
 linux-zen
 linux-zen-headers
 lite-xl
-llvm
-llvm10
+#llvm
+#llvm10
 lolcat
 losslesscut-bin
 lostfiles
@@ -432,7 +432,7 @@ open-iscsi
 open-vm-tools
 openbsd-netcat
 opencl-clhpp
-opencl-clover-mesa
+opencl-mesa
 opencl-headers
 openconnect
 openpgp-card-tools
@@ -643,7 +643,7 @@ vulkan-swrast
 vulkan-tools
 vvenc
 w3m
-waf
+waf-git
 wayfire-git
 wayfire-plugins-extra-git
 wcm-git

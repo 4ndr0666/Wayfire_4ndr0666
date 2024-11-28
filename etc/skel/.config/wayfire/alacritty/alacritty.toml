@@ -1,36 +1,21 @@
-#File: $HOME/.config/wayfire/alacritty/alacritty.toml
-#Author: 4ndr0666
-#
-# --- // ALACRITTY.TOML // ========
+# File: $HOME/.config/wayfire/alacritty/alacritty.toml
+# Author: 4ndr0666
+# Date: 10-19-24
 
-## GENERAL --------------------------------------------------------
+# ===================================== // ALACRITTY.TOML //
+# --- // General:
+general.import = ["~/.config/wayfire/alacritty/colors.toml", "~/.config/wayfire/alacritty/fonts.toml"]
+terminal.shell = { program = "/bin/zsh", args = ["--login"] }
+working_directory = "None"
+general.live_config_reload = true
+general.ipc_socket = false
 
-## Import additional configuration files.
-import = ["~/.config/wayfire/alacritty/colors.toml", "~/.config/wayfire/alacritty/fonts.toml"]
-
-## You can set shell.program to the path of your favorite shell, e.g. /bin/zsh.
-## Entries in shell.args are passed as arguments to the shell.
-#shell = { program = "/bin/zsh", args = ["--login"] }
-
-## Directory the shell is started in. When this is unset, or "None",
-## the working directory of the parent process will be used.
-#working_directory = "None"
-
-## Live config reload
-live_config_reload = true
-
-## Offer IPC using alacritty msg
-ipc_socket = true
-
-## ENVIRONMENT ----------------------------------------------------
-
-## All key-value pairs in the [env] section will be added as environment variables for any process spawned
-## by Alacritty, including its shell. Some entries may override variables set by alacritty itself.
+# --- // Env: 
 [env]
 TERM = "alacritty"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
-## WINDOW ---------------------------------------------------------
+# --- // Window: 
 [window]
 position = "None"
 dynamic_padding = true
@@ -40,37 +25,37 @@ blur = false
 startup_mode = "Windowed"
 dynamic_title = true
 class = { instance = "Alacritty", general = "Alacritty" }
-decorations_theme_variant = "None"
+decorations_theme_variant = "dark"
 
-## Number of lines/columns (not pixels) in the terminal.
+# --- // Lines: 
 [window.dimensions]
 columns = 82
 lines = 24
 
-## Blank space added around the window in pixels.
+# --- // Padding:
 [window.padding]
 x = 12
 y = 12
 
-## SCROLLING ------------------------------------------------------
+# --- // Scrolling:
 [scrolling]
 history = 10000
 multiplier = 3
 
-## BELL -----------------------------------------------------------
+# --- // Bell: 
 [bell]
 animation = "Linear"
 duration = 20
-#command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
+# command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/dialog-error.oga"] }
 
-## SELECTION ------------------------------------------------------
+# --- // Clipboard:
 [selection]
 save_to_clipboard = true
 
-## CURSOR ---------------------------------------------------------
+# -- // Cursor: 
 [cursor]
 vi_mode_style = "None"
-blink_interval = 750
+blink_interval = 250
 blink_timeout = 5
 unfocused_hollow = false
 thickness = 0.15
@@ -79,11 +64,11 @@ thickness = 0.15
 shape = "Block"
 blinking = "On"
 
-## MOUSE ----------------------------------------------------------
+# --- // Mouse: 
 [mouse]
 hide_when_typing = false
 
-## HINTS ----------------------------------------------------------
+# --- // Hints: 
 [[hints.enabled]]
 command         = "xdg-open"
 hyperlinks      = true
@@ -93,7 +78,7 @@ mouse.enabled   = true
 binding         = { key = "U", mods = "Control|Shift" }
 regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
 
-## DEBUG ----------------------------------------------------------
+# --- // Debug: 
 [debug]
 render_timer = false
 persistent_logging = false
@@ -101,4 +86,5 @@ log_level = "Warn"
 renderer = "None"
 print_events = false
 highlight_damage = false
-prefer_egl = false
+prefer_egl = true
+

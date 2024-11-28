@@ -21,6 +21,6 @@ color12='#04acb5'
 color13='#05bbc5'
 color14='#06ccd7'
 color15='#a3b5b8'
-wallpaper='/home/andro/Wallpapers/Archwave4ndr0.png'
+wallpaper='/home/andro/Wallpapers/wallpaper.jpg'
 
 

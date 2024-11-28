@@ -1,14 +1,9 @@
 # File: $HOME/.config/wayfire.ini
 # Author: 4ndr0666
-# Edited: 10-24-24
-#
-# === // 4ndr0666_WAYFIRE.INI // ========
+# Edited: 11-14-24
 
-
-
-
-# ----------------------------------------- // USAGE // 
-#
+# =========================================// 4ndr0666_WAYFIRE.INI //
+# --- // USAGE //
 # Wayfire searches for a config file in the following locations, in this order:
 #   1. $WAYFIRE_CONFIG_FILE
 #   2. $XDG_CONFIG_HOME/wayfire.ini
@@ -26,7 +21,7 @@
 # The shell command is executed with SH on startup so the proper syntax for autostart is:
 #   autostart.<program-id> <shell-command>
 #
-# --- // WINDOW_VALUES: 
+# --- // WINDOW_VALUES:
 #  • title [is|contains] "<string>"
 #  • app_id [is|contains] "<string>"
 #  • type is ["toplevel"|"x-or"|"unmanaged"|"background"|"panel"|"overlay"|"unknown"]
@@ -42,7 +37,7 @@
 #  • tiled-top is [true|false]
 #  • tiled-bottom is [true|false]
 #
-# --- // BOOLEAN_VALUES: 
+# --- // BOOLEAN_VALUES:
 #  • title [is|contains] "<string>"
 #  • app_id [is|contains] "<string>"
 #  • type is ["toplevel"|"x-or"|"unmanaged"|"background"|"panel"|"overlay"|"unknown"]
@@ -76,7 +71,7 @@
 #  • sticky: sticky across all workspaces.
 #  • start_on_output: start window on specific output. example: start_on_output "HDMI-A-1"
 #
-# --- // RULES_SYNTAX: 
+# --- // RULES_SYNTAX:
 # rule_name = on <event> if <criteria> then <if_command> [else <else_command>]
 # rule_name = on <event> then <command>
 #
@@ -84,14 +79,65 @@
 # rule_1 = on created if app_id is "Alacritty" then maximize
 # rule_2 = on created if app_id is "Alacritty" then set alpha 0.5
 
+[core]
+background_color = 0.016 0.091 0.110 1.0
+close_top_view = <super> KEY_Q | <alt> KEY_F4
+exit = <alt> <ctrl> KEY_BACKSPACE
+focus_button_with_modifiers = false
+focus_buttons = BTN_LEFT
+focus_buttons_passthrough = true
+max_render_time = -1
+plugins = \
+  alpha \
+  animate \
+  autostart \  
+  command \  
+  decoration \  
+  expo \  
+  fast-switcher \
+  foreign-toplevel \  
+  focus-request \  
+  follow-focus \  
+  grid \  
+  idle \  
+  mag \  
+  move \   
+  oswitch \   
+  pin \ 
+  place \ 
+  preserve-output \  
+  resize \  
+  session-lock \
+  scale \  
+  simple-tile \  
+  switcher \    
+  vswitch \  
+  wf-kill \  
+  window-rules \  
+  wm-actions \  
+  workarounds \  
+  wrot \  
+  wsets \  
+  zoom
+preferred_decoration_mode = server
+# Note: [blur] is not enabled by default, because it can be resource-intensive.
+# Feel free to add it to the list if you want it.
+# You can find its documentation here:
+# https://github.com/WayfireWM/wayfire/wiki/Configuration#blur
+
+vheight = 3
+vwidth = 3
+xwayland = true
 [alpha]
+modifier = <super> <alt>
 min_value = 0.100000
-modifier = <alt> <super>
+
 
 [animate]
 close_animation = zoom
 duration = 300ms circle
-enabled_for = (type is "toplevel" | (type is "x-or" & focusable is true) | app_id is "wofi" | app_id is "waybar" | app_id contains "Rofi")
+enabled_for = none
+#(type is "toplevel" | (type is "x-or" & focusable is true) | app_id is "wofi" | app_id is "waybar" | app_id contains "Rofi")
 fade_duration = 300ms circle
 fade_enabled_for = type equals "overlay"
 fire_color = \#B32403FF
@@ -128,10 +174,11 @@ zoom_enabled_for = none
 [autostart]
 0_environment = dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP=wayfire
 apply_themes = ~/.config/wayfire/scripts/gtkthemes &
+#gtkdaemon = /usr/bin/xsettingsd &
 autostart_wf_shell = false
 clipman-restore = clipman restore
 clipman-store = wl-paste -t text --watch clipman store
-dex = dex -a -s /etc/xdg/autostart/:~/.config/autostart/:/usr/local/bin/run-wayfire
+dex = dex -a -s /etc/xdg/autostart/:~/.config/autostart/:/usr/local/bin/run-wayfire/
 gnome-keyring = gnome-keyring-daemon --daemonize --start --components=gpg,pkcs11,secrets,ssh
 idle = swayidle before-sleep ~/.config/wayfire/scripts/lockscreen
 outputs = kanshi
@@ -141,7 +188,6 @@ set_wallpaper = ~/.config/wayfire/scripts/wallpaper &
 start_nma = nm-applet --indicator &
 start_notify = ~/.config/wayfire/scripts/notifications &
 start_statusbar = ~/.config/wayfire/scripts/statusbar &
-start_unclutter = unclutter
 
 #[bench]
 #average_frames = 25
@@ -215,17 +261,17 @@ command_files = thunar
 command_jdownloader = jdownloader
 command_kill = wf-kill
 command_launcher = ~/.config/wayfire/scripts/wofi_menu
-command_lf = alacritty -e lfub
+command_lf = st -e lf
 command_lockscreen = ~/.config/wayfire/scripts/lockscreen
 command_logout = ~/.config/wayfire/scripts/rofi_powermenu
 command_lossless = losslesscut
-command_media = ~/.local/bin/dmenumedia
+command_media = $HOME/.local/bin/wofi_media.sh
 command_media-play-pause = playerctl play-pause
 command_micro = alacritty -e micro
 command_min = min-browser
 command_mute = ~/.config/wayfire/scripts/volume --toggle
 command_nm = ~/.config/wayfire/scripts/rofi_network
-command_nvim = alacritty -e nvim
+command_nvim =  st -e nvim
 command_oom = sudo sh -c 'echo "f" > /proc/sysrq-trigger' && notify-send "oom killer executed."
 command_pacui = alacritty -e pacui
 command_playwithmpv = ~/.local/bin/pwmpv-toggle
@@ -235,70 +281,16 @@ command_screenshot = ~/.config/wayfire/scripts/rofi_screenshot
 command_screenshot_10 = ~/.config/wayfire/scripts/screenshot --in10
 command_screenshot_5 = ~/.config/wayfire/scripts/screenshot --in5
 command_screenshot_interactive = ~/.config/wayfire/scripts/screenshot --area
-command_searchmaster = alacritty -e /usr/local/bin/searchmaster.py
+command_searchmaster =  st -e /usr/local/bin/searchmaster.py
 command_shots = ~/.config/wayfire/scripts/rofi_screenshot
 command_st = ~/.config/wayfire/scripts/st
 command_theme = ~/.config/wayfire/theme/theme.sh --pywal
 command_volume_down = ~/.config/wayfire/scripts/volume --dec
-#pactl set-sink-volume @DEFAULT_SINK@ -5%
 command_volume_up = ~/.config/wayfire/scripts/volume --inc
-command_web = sh -c 'brave-beta --ozone-platform=wayland --use-gl=egl --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterize --disable-crash-reporter=beta --disable-middlebuttonclickautoscroll --disable-vulkan --disable-caststreamingvp8  & echo $! > /tmp/brave_pid'
+command_web = sh -c 'brave-beta --ozone-platform=wayland --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterize --disable-crash-reporter & echo $! > /tmp/brave_pid'
 repeatable_binding_volume_down = KEY_VOLUMEDOWN
 repeatable_binding_volume_up = KEY_VOLUMEUP
 
-[core]
-background_color = 0.066 0.070 0.086 1.0
-close_top_view = <super> KEY_Q | <alt> KEY_F4
-exit = <alt> <ctrl> KEY_BACKSPACE
-focus_button_with_modifiers = false
-focus_buttons = BTN_LEFT
-focus_buttons_passthrough = true
-max_render_time = -1
-plugins = \
-  alpha \
-  animate \
-  autostart \
-  command \
-  decoration \
-  expo \
-  fast-switcher \
-  focus-request \
-  follow-focus \
-  grid \
-  idle \
-  ipc \ 
-  ipc-rules \
-  mag \
-  move \
-  oswitch \
-  pin-view \
-  place \
-  preserve-output \
-  resize \
-  scale \
-  session-lock \
-  simple-tile \
-  switcher \
-  vswipe \
-  vswitch \
-  wf-kill \
-  window-rules \
-  wm-actions \
-  workarounds \
-  wrot \
-  wsets \
-  zoom
-#  workspace-names \
-#  wobbly \
-#  winzoom \ 
-#  scale-title-filter \
-#  fisheye \
-
-preferred_decoration_mode = server
-transaction_timeout = 100
-vheight = 3
-vwidth = 3
-xwayland = true
 
 #[crosshair]
 #line_color = \#FF0000FF
@@ -306,36 +298,41 @@ xwayland = true
 
 #[cube]
 #activate = <alt> <ctrl> BTN_LEFT
-#background = \#1A1A1AFF
+#background = 0.016 0.091 0.110 1.0
 #background_mode = simple
-#cubemap_image = 
+#cubemap_image =
 #deform = 0
 #initial_animation = 350ms circle
 #light = true
 #rotate_left = none
 #rotate_right = none
 #skydome_mirror = true
-#skydome_texture = 
+#skydome_texture =
 #speed_spin_horiz = 0.020000
 #speed_spin_vert = 0.020000
 #speed_zoom = 0.070000
 #zoom = 0.100000
 
 [decoration]
-active_color = 0.381 0.623 0.753 1.0
+active_color = 0.290 0.393 0.448 1.0
 border_size = 3
 button_order = minimize maximize close
-font = Iosevka
+font = Noto Sans 9
 ignore_views = none
-inactive_color = 0.000 0.106 0.106 1.0
+inactive_color = 0.028 0.165 0.196 1.0
 title_height = 0
 
 [expo]
-background = 0.066 0.070 0.086 1.0
-duration = 200ms circle
+background = 0.016 0.091 0.110 1.0
+duration = 300ms circle
 inactive_brightness = 0.400000
 keyboard_interaction = true
 offset = 10
+# ⇱ k ⇲
+# h ⏎ l
+# ⇱ j ⇲
+# ‾   ‾
+# See core.vwidth and core.vheight for configuring the grid.
 select_workspace_1 = KEY_1
 select_workspace_2 = KEY_2
 select_workspace_3 = KEY_3
@@ -348,10 +345,10 @@ select_workspace_9 = KEY_9
 toggle = <super>  | BTN_MIDDLE
 transition_length = 200
 
-[extra-gestures]
-close_fingers = 20
-move_delay = 750
-move_fingers = 3
+#[extra-gestures]
+#close_fingers = 20
+#move_delay = 750
+#move_fingers = 3
 
 [fast-switcher]
 activate = <super> KEY_J
@@ -420,9 +417,23 @@ slot_r = <super> KEY_L | <super> KEY_KP6
 slot_t = <super> KEY_KP8
 slot_tl = <alt> KEY_Y | <super> KEY_KP7
 slot_tr = <alt> KEY_O | <super> KEY_KP9
-type = all
+type = crossfade
+#
+# ⇱ ↑ ⇲   │ 7 8 9
+# ← f →   │ 4 5 6
+# ⇱ ↓ ⇲ d │ 1 2 3 0
+# ‾   ‾
+#slot_bl = <super> KEY_KP1
+#slot_b = <super> KEY_KP2
+#slot_br = <super> KEY_KP3
+#slot_l = <super> KEY_LEFT | <super> KEY_KP4
+#slot_c = <super> KEY_UP | <super> KEY_KP5
+#slot_r = <super> KEY_RIGHT | <super> KEY_KP6
+#slot_tl = <super> KEY_KP7
+#slot_t = <super> KEY_KP8
+#slot_tr = <super> KEY_KP9
 
-[gtk-shell]
+#[gtk-shell]
 
 #[hide-cursor]
 #hide_delay = 2000
@@ -434,9 +445,9 @@ cube_rotate_speed = 1.500000
 cube_zoom_speed = 1000
 disable_initially = false
 disable_on_fullscreen = true
-dpms_timeout = -1
-screensaver_timeout = 3600
-toggle = <super> KEY_Z
+dpms_timeout = 600
+screensaver_timeout = 300
+toggle = none
 
 [input]
 click_method = default
@@ -481,9 +492,9 @@ enable_text_input_v3 = true
 #preserve_hue = false
 #toggle = <super> KEY_I
 
-[ipc]
+#[ipc]
 
-[ipc-rules]
+#[ipc-rules]
 
 #[join-views]
 
@@ -493,7 +504,7 @@ enable_text_input_v3 = true
 #threshold = 0.500000
 
 [mag]
-default_height = 500
+default_height = 400
 toggle = <shift> <super> KEY_M
 zoom_level = 70
 
@@ -518,18 +529,18 @@ workspace_switch_after = -1
 #prev_output =
 #prev_output_with_win =
 
-[output]
-depth = 24
-mode = 1920x1080@60000
-position = 0,0
-scale = 1.000000
-transform = normal
-vrr = false
+#[output]
+#depth = 24
+#mode = auto
+#position = auto
+#scale = 1.000000
+#transform = normal
+#vrr = false
 
 [output:HDMI-A-1]
-depth = 10
+depth = 24
 mode = 1920x1080@60000
-position = 0,0
+position = auto
 scale = 1.000000
 transform = normal
 vrr = false
@@ -537,10 +548,10 @@ vrr = false
 [pin-view]
 
 [place]
-mode = center
+mode = random
 
-#[preserve-output]
-#last_output_focus_timeout = 10000
+[preserve-output]
+last_output_focus_timeout = 10000
 
 [resize]
 activate = <super> BTN_RIGHT
@@ -567,15 +578,15 @@ title_font_size = 12
 title_overlay = all
 title_position = center
 toggle = <super> KEY_V
-toggle_all = hotspot bottom-left 100x10 1000
+toggle_all = hotspot bottom-left 100x10 1000 | <super> <ctrl> KEY_V
 
-#[scale-title-filter]
-#bg_color = \#00000080
-#case_sensitive = false
-#font_size = 30
-#overlay = true
-#share_filter = false
-#text_color = \#CCCCCCCC
+[scale-title-filter]
+bg_color = \#00000080
+case_sensitive = false
+font_size = 30
+overlay = true
+share_filter = false
+text_color = \#15FFFFFF
 
 [session-lock]
 
@@ -604,16 +615,21 @@ outer_vert_gap_size = 3
 preview_base_border = \#15FFFFFF
 preview_base_color = \#8080FF80
 preview_border_width = 2
-tile_by_default = (type is "x-or" & focusable is false)
+tile_by_default = (type is "unmanaged" & focusable is false) | app_id_is "alacritty" | app_id is "st" | app_id is "wofi" | app_id is "waybar" | app_id contains "rofi" | app_id is "diffuse" | app_id is "lite-xl" | app_id is "mpv" | app_id is "vlc" | app_id is "geany" | app_id is "flawless-cut")
+
 #((type is "x-or" & floating is false) | app_id contains "brave-beta-browser" | app_id is "diffuse" | all_id contains "celluloid" | app_id is "geany" | app_id is "lite-xl" | app_id contains "vlc" | app_id is "ranger" | app_id is "min-browser" | app_id is "meld" | app_id is "lossless-cut" | app_id contains "engrampa")
-#(type is "toplevel" | (type is "x-or" & focusable is true) | app_id is "wofi" | app_id is "waybar" | app_id contains "Rofi")
+
+#(type is "x-or" & focusable is false)
+
 #tile_by_default = (type is "x-or" & focusable is false) | (type is "toplevel" & focusable is false)
+
 #tile_by_default = (type is "toplevel" & focusable is true) | (type is "x-or" & focusable is true)
-#tile_by_default = (type is "panel" & focusable is false) | (type is "background" & focusable is false) | (role is "DESKTOP_ENVIRONMENT" & focusable is false)
+
+
 [switcher]
 gesture_toggle = edge-swipe down 3
 next_view = <super> KEY_TAB
-prev_view = <alt> KEY_TAB
+prev_view = 
 speed = 300ms circle
 touch_sensitivity = 1.000000
 view_thumbnail_rotation = 30
@@ -625,7 +641,7 @@ view_thumbnail_scale = 1.000000
 #filename = /tmp/snapshot-%F-%T.png
 
 [vswipe]
-background = 0.066 0.070 0.086 1.0
+background = 0.016 0.091 0.110 1.0
 delta_threshold = 24.000000
 duration = 180ms circle
 enable_free_movement = false
@@ -639,7 +655,7 @@ speed_factor = 256.000000
 threshold = 0.350000
 
 [vswitch]
-background = 0.066 0.070 0.086 1.0
+background = 0.016 0.091 0.110 1.0
 binding_1 = <super> KEY_1
 binding_2 = <super> KEY_2
 binding_3 = <super> KEY_3
@@ -694,37 +710,18 @@ wraparound = false
 
 [wf-kill]
 
-[window-rules]
-rule_001 = on created if app_id is "thunar" then move 0 2
-rule_002 = on created if app_id is "thunar" then snap left
-rule_003 = on created if app_id is "thunar" then set alpha 0.8
-rule_004 = on created if app_id is "mpv" then unmaximize
-rule_005 = on created if app_id is "mpv" then snap top_right
-rule_006 = on created if app_id is "Alacritty" then set alpha 0.8
-rule_007 = on created if app_id is "Alacritty" then unmaximize
-rule_008 = on created if app_id is "lite-xl" then set alpha 0.8
-rule_009 = on created if app_id is "lite-xl" then snap left
-rule_010 = on created if title contains "Picture-in-Picture" then set always_on_top
-rule_011 = on created if title contains "Picture-in-Picture" then snap top_left
-rule_012 = on created if title contains "Rename" then set geometry 485 241 418 215
-rule_013 = on created if title contains "Properties" then set geometry 378 91 572 541
-rule_014 = on created if app_id contains "flawless-cut" then snap right
-rule_015 = on created if app_id contains "flawless-cut" then move 0 2
-rule_016 = on created if app_id is "st" then set alpha 0.8
-rule_017 = on created if app_id is "st" then unmaximize
+[winzoom]
+dec_x_binding = <ctrl> <super> KEY_LEFT
+dec_y_binding = <ctrl> <super> KEY_UP
+inc_x_binding = <ctrl> <super> KEY_RIGHT
+inc_y_binding = <ctrl> <super> KEY_DOWN
+modifier = <ctrl> <super>
+nearest_filtering = false
+preserve_aspect = true
+zoom_step = 0.100000
 
-#[winzoom]
-#dec_x_binding = <ctrl> <super> KEY_LEFT
-#dec_y_binding = <ctrl> <super> KEY_UP
-#inc_x_binding = <ctrl> <super> KEY_RIGHT
-#inc_y_binding = <ctrl> <super> KEY_DOWN
-#modifier = <ctrl> <super>
-#nearest_filtering = false
-#preserve_aspect = true
-#zoom_step = 0.100000
-
-#[preserve-output]
-#last_output_focus_timeout = 10000
+[preserve-output]
+last_output_focus_timeout = 10000
 
 [wm-actions]
 minimize = <shift> <super> KEY_F5
@@ -753,7 +750,7 @@ remove_output_limits = false
 use_external_output_configuration = false
 
 [workspace-names]
-background_color = 0.066 0.070 0.086 1.0
+background_color = 0.016 0.091 0.110 1.0
 background_radius = 30.000000
 display_duration = 500
 font = sans-serif
@@ -772,7 +769,7 @@ reset_radius = 25.000000
 sensitivity = 24
 
 [wsets]
-label_duration = 2000ms linear
+label_duration = 5000ms circle
 send_to_wset_1 = <super> <shift> <alt> KEY_1
 send_to_wset_2 = <super> <shift> <alt> KEY_2
 send_to_wset_3 = <super> <shift> <alt> KEY_3
@@ -787,3 +784,22 @@ interpolation_method = 0
 modifier = <ctrl> <super>
 smoothing_duration = 300ms circle
 speed = 0.010000
+
+[window-rules]
+#rule_001 = on created if app_id is "thunar" then move 0 2
+#rule_002 = on created if app_id is "thunar" then snap left
+rule_001 = on created if app_id is "thunar" then set alpha 0.8
+#rule_002 = on created if app_id is "mpv" then unmaximize
+#rule_005 = on created if app_id is "mpv" then snap top_right
+#rule_003 = on created if app_id is "Alacritty" then set alpha 0.8
+#rule_004 = on created if app_id is "Alacritty" then unmaximize
+#rule_005 = on created if app_id is "lite-xl" then set alpha 0.8
+#rule_006 = on created if app_id is "lite-xl" then snap left
+#rule_007 = on created if title contains "Picture-in-Picture" then set always_on_top
+#rule_011 = on created if title contains "Picture-in-Picture" then snap top_left
+#rule_012 = on created if title contains "Rename" then set geometry 485 241 418 215
+#rule_013 = on created if title contains "Properties" then set geometry 378 91 572 541
+#rule_008 = on created if app_id contains "flawless-cut" then snap right
+#rule_015 = on created if app_id contains "flawless-cut" then move 0 2
+#rule_009 = on created if app_id is "st" then set alpha 0.8
+#rule_010 = on created if app_id is "st" then unmaximize

@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-# Enhanced Alacritty Launch Script with Fallback Configuration
+# Enhanced Alacritty Launch Script with Fallback Configuration and Error Handling
+# Author: 4ndr0666
+# Date: 10-01-24
 
+# Path to Alacritty configuration file
 CONFIG="$HOME/.config/wayfire/alacritty/alacritty.toml"
-DEFAULT_CONFIG="/etc/alacritty/alacritty.yml"
+#DEFAULT_CONFIG="/etc/alacritty/alacritty.yml"
 
 # Check if the custom configuration file exists
-if [ ! -f "$CONFIG" ]; then
-    echo "Custom config not found. Using default configuration."
-    CONFIG="$DEFAULT_CONFIG"
-fi
+#if [ ! -f "$CONFIG" ]; then
+#    echo "Custom config not found. Using default configuration."
+#    CONFIG="$DEFAULT_CONFIG"
+#fi
 
 # Handle the input arguments and launch Alacritty accordingly
 if [ "$1" == "-f" ]; then

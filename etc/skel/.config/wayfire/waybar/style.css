@@ -355,11 +355,19 @@ window#waybar.empty #window {
 	margin: 6px 0px;
 	border-radius: 2px;
 }
+
 #custom-terminal {
 	background-color: @selected;
 	margin-right: 6px;
 	padding: 2px 8px;
 	font-size: 14px;
+}
+
+#custom-recording {
+	background-color: @red;
+	margin-right: 6px;
+	padding: 2px 8px;
+	font-size: 20px;
 }
 
 #custom-updates {
@@ -394,10 +402,13 @@ window#waybar.empty #window {
     border-bottom: 2px solid @yellow;
 }
 
+#custom-storage5 {
+    border-bottom: 2px solid @green;
+}
 
 
 /** Common style **/
-#backlight, 
+#backlight,
 #memory,
 #custom-storage,
 #custom-storage2,

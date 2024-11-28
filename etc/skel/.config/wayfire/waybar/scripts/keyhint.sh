@@ -1,7 +1,6 @@
 #!/bin/sh
-# "Change keyboard layout in" "~/.config/hypr/hyprland.conf" " " \
 
-yad --width=360 --height=550 \
+yad --width=330 --height=550 \
 --center \
 --fixed \
 --title="Keybindings" \
@@ -9,47 +8,50 @@ yad --width=360 --height=550 \
 --list \
 --column=Key: \
 --column=Description: \
---column=Command: \
---timeout=60 \
+--column= \
+--timeout=30 \
 --timeout-indicator=right \
-"+H" "Early OOM" "" \
-"=Ctrl+BTN_RIGHT" "Wrot" "" \
-"+Shift+BTN_RIGHT" "3d-Wrot" "" \
-"+F1" "Play_with_mpv" "" \
-"+F2" "Joshuto" "" \
+"+Shift+C" "Change Theme" "" \
+"+F1" "Play with mpv" "" \
+"+F2" "LF" "" \
 "+F3" "Micro" "" \
-"+F4" "Nvim" "" \
+"+F4" "Neovim" "" \
 "+F5" "Flawless-Cut" "" \
-"+F6" "Losslesscut" "" \
-"+F7" "Jdownloader2" "" \
-"+F8" "" "" \
-"+F9" "pacui" "" \
-"+F10" "dmenu" "" \
-"+F11" "dmenumedia" "" \
-"+F12" "dmenurecord" "" \
-"Ctrl/+Enter" "Full Terminal" "" \
+"+F6" "LosslessCut" "" \
+"+F7" "JDownloader" "" \
+"+F9" "PacUI" "" \
+"+F10" "Dmenu Handler" "" \
+"+F11" "Dmenu Media" "" \
+"+F12" "Dmenu Record" "" \
+"+S" "Screenshot Tool" "" \
+"Print" "Select Screenshot Area" "" \
+"Shift+Print" "Screenshot in 5sec" "" \
+"+Print" "Screenshot in 10sec" "" \
 "+D" "Application Menu" "" \
 "+R" "Application Runner" "" \
-"C+A+Left" "Cube Left" "" \
-"C+A+Right" "Cube Right" "" \
-"+Ctrl+BTN_LEFT" "Fisheye" "" \
+"+W" "Web Browser" "" \
+"+F" "File Browser" "" \
+"+E" "LiteXL" "" \
+"+P" "Color Picker" "" \
+"+Q" "Wf-kill" "" \
+"+0" "Oom Killer" "" \
+"Alt+F1" "Clipboard Manager" "" \
+"Ctrl+Alt+B" "Restart Waybar" "" \
+"Ctrl+Alt+9" "Searchmaster" "" \
+"+Alt+R" "Run Command as Root" "" \
+"+Spacebar" "Toggle floating mode" "" \
 "+Shift+M" "Magnify" "" \
-"+Shift+0" "Hide Cursor" "" \
-"+Ctrl+v" "Scale All Windows" "" \
-"Print" "Screenshot Interactive" "" \
-"Shift+Print" "Screenshot in 5sec" "" \
-"+Print" "Screenshot in 10" "" \
-"+X" "Power-Menu" "" \
-"+Shift+C" "Random Theme" "" \
+"+Shift+M" "Minimize Window" "" \
 "+Shift+F" "Fullscreen" "" \
 "+Shift+F5" "Minimize" "" \
 "+Shift+F6" "Maximize" "" \
 "+Shift+F7" "Stay On Top" "" \
-"+Shift+F8" "Sticky" "" \
+"+Shift+F8" "Sticky Window" "" \
 "+Shift+F9" "Push Behind" "" \
 "+Shift+F10" "Show Desktop" "" \
-"+Spacebar" "Float" "" \
-"+P" "Colorpicker" "" \
-"+L" "Lockscreen" "" \
-"+N" "NetowrkManager" "" \
-"" " MagicsysRq Alt+SysRq+B/E/F/S/U" "" \
+"+Shift+rightclick" "3d-Wrot" "" \
+"=Ctrl+rightclick" "Wrot" "" \
+"+V" "Scale All Windows" "" \
+"+L" "Lock Screen" "" \
+"+N" "Network Manager" "" \
+"+X" "Power Menu" "" \

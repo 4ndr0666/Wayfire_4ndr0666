@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-##
-## Simple Script To Pick Color Quickly.
+# Color picking script for Wayfire with enhanced error handling and security practices
 
 #color=$(grim -g "`slurp -b 00000000 -p`" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n1 | cut -d' ' -f4)
 color=`$HOME/.config/wayfire/scripts/hyprpicker`
 image=/tmp/${color}.png
 
+# Main function
 main() {
 	if [[ "$color" ]]; then
 		# copy color code to clipboard
