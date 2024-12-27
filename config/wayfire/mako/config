@@ -1,0 +1,74 @@
+# File: ~/.config/wayfire/mako/config
+# Author: 4ndr0666
+# Date: 12-9-24
+
+# ========================== // CONFIG // 
+# --- // General:
+max-history=10
+sort=-time
+group-by=summary
+
+# --- // Bindings:
+on-button-left=dismiss
+on-button-middle=none
+on-button-right=dismiss-all
+on-touch=dismiss
+#on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
+# --- // Styles:
+font=Noto Sans 10
+width=300
+height=100
+margin=20
+padding=15
+border-size=2
+border-radius=15
+icons=1
+max-icon-size=48
+icon-location=left
+markup=1
+actions=1
+history=1
+text-alignment=left
+default-timeout=5000
+ignore-timeout=0
+max-visible=5
+layer=overlay
+anchor=top-center
+
+# --- // Colors:
+background-color=#0c0a1c
+text-color=#d098bd
+border-color=#14112f
+progress-color=over #763386
+
+[urgency=low]
+border-color=#14112f
+default-timeout=2000
+
+[urgency=normal]
+border-color=#14112f
+default-timeout=5000
+
+[urgency=high]
+border-color=#8F3B79
+text-color=#8F3B79
+default-timeout=0
+# Mako_Colors
+background-color=#111016
+text-color=#ef9999
+border-color=#1d1b25
+progress-color=over #8D494A
+
+[urgency=low]
+border-color=#1d1b25
+default-timeout=2000
+
+[urgency=normal]
+border-color=#1d1b25
+default-timeout=5000
+
+[urgency=high]
+border-color=#6B494C
+text-color=#6B494C
+default-timeout=0
