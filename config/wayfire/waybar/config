@@ -30,8 +30,7 @@
         "memory",
         "custom/brave",
         "custom/filemanager",
-        "custom/terminal",
-        "wlr/taksbar"
+        "custom/terminal"
     ],
     //"modules-left": ["custom/menu", "custom/spotify", "custom/themes"],
     "modules-center": [
@@ -44,8 +43,8 @@
     ],
 
     "modules-right": [
+        "wlr/taskbar",
         "tray",
-        "custom/updates",
         "idle_inhibitor",
         "pulseaudio",
         "network",

@@ -4,9 +4,8 @@
 
 # ========================== // CONFIG // 
 # --- // General:
-max-history=10
+max-history=100
 sort=-time
-group-by=summary
 
 # --- // Bindings:
 on-button-left=dismiss
@@ -16,7 +15,7 @@ on-touch=dismiss
 #on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
 # --- // Styles:
-font=Noto Sans 10
+font=JetBrains Mono 10
 width=300
 height=100
 margin=20
@@ -36,39 +35,21 @@ max-visible=5
 layer=overlay
 anchor=top-center
 
-# --- // Colors:
-background-color=#0c0a1c
-text-color=#d098bd
-border-color=#14112f
-progress-color=over #763386
-
-[urgency=low]
-border-color=#14112f
-default-timeout=2000
-
-[urgency=normal]
-border-color=#14112f
-default-timeout=5000
-
-[urgency=high]
-border-color=#8F3B79
-text-color=#8F3B79
-default-timeout=0
 # Mako_Colors
-background-color=#111016
-text-color=#ef9999
-border-color=#1d1b25
-progress-color=over #8D494A
+background-color=#030303
+text-color=#dfdfdf
+border-color=#101010
+progress-color=over #343434
 
 [urgency=low]
-border-color=#1d1b25
+border-color=#101010
 default-timeout=2000
 
 [urgency=normal]
-border-color=#1d1b25
+border-color=#101010
 default-timeout=5000
 
 [urgency=high]
-border-color=#6B494C
-text-color=#6B494C
+border-color=#212121
+text-color=#212121
 default-timeout=0

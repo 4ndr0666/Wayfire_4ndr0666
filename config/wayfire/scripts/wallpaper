@@ -6,6 +6,6 @@
 ## Sets Wallpaper in Wayfire
 
 # ================================= // WALLPAPER //
-WALLPAPER='/home/andro/Wallpapers/126wall.jpg'
+WALLPAPER='/home/andro/Wallpapers/arch-linux-wallpaper-b9c0f8cd618acdfb4677881fe0f1566d.jpg'
 
 swaybg --output '*' --mode fill --image "$WALLPAPER"
