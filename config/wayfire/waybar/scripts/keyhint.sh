@@ -12,7 +12,8 @@ yad --width=330 --height=550 \
 --timeout=30 \
 --timeout-indicator=right \
 "+Shift+C" "Change Theme" "" \
-"+F1" "Play with mpv" "" \
+"+F1" "TD-Toggle" "" \
+"+1" "Torwrap" "" \
 "+F2" "LF" "" \
 "+F3" "Micro" "" \
 "+F4" "Neovim" "" \
