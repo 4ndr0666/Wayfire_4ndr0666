@@ -4,11 +4,11 @@
 
 # ===================================== // ALACRITTY.TOML //
 # --- // General:
-general.import = ["~/.config/wayfire/alacritty/colors.toml", "~/.config/wayfire/alacritty/fonts.toml"]
-terminal.shell = { program = "/bin/zsh", args = ["--login"] }
-general.working_directory = "/home/andro/"
-general.live_config_reload = true
-general.ipc_socket = true
+import = ["~/.config/wayfire/alacritty/colors.toml", "~/.config/wayfire/alacritty/fonts.toml"]
+#terminal.shell = { program = "/bin/zsh", args = ["--login"] }
+working_directory = "$HOME"
+live_config_reload = true
+ipc_socket = true
 
 # --- // Env: 
 [env]
