@@ -36,7 +36,7 @@ source_default() {
 ## Random Theme
 source_pywal() {
 	# Set you wallpaper directory here.
-	WALLDIR="/home/andro/Wallpapers"
+	WALLDIR="$HOME/Wallpaper"
 
 	# Check for wallpapers
 	check_wallpaper() {
