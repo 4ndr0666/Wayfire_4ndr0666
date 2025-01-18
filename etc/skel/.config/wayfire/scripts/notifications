@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Enhanced Mako Notifications Script with Improved Process Check
+
+CONFIG="$HOME/.config/wayfire/mako/config"
+
+if [[ ! `pidof mako` ]]; then
+	mako --config ${CONFIG}
+fi

@@ -1,0 +1,25 @@
+[Default Applications]
+text/x-shellscript=text.desktop;
+x-scheme-handler/magnet=torrent.desktop;
+application/x-bittorrent=torrent.desktop;
+x-scheme-handler/mailto=mail.desktop;
+text/plain=text.desktop;
+application/postscript=pdf.desktop;
+application/pdf=pdf.desktop;
+image/png=img.desktop;
+image/jpeg=img.desktop;
+image/gif=img.desktop;
+application/rss+xml=rss.desktop
+video/x-matroska=video.desktop
+video/mp4=video.desktop
+x-scheme-handler/lbry=lbry.desktop
+inode/directory=file.desktop
+video/quicktime=video.desktop
+application/x-zerosize=userapp-st -e nvim %u-XNJF02.desktop
+video/webm=video.desktop
+
+[Added Associations]
+video/quicktime=video.desktop;
+application/x-zerosize=gcr-viewer.desktop;userapp-st -e nvim %u-XNJF02.desktop;userapp-file.desktop-J0N4Z2.desktop;userapp-text.desktop-CA1B02.desktop;userapp-nvim-NJNK02.desktop;userapp-neovim-IZZ7Z2.desktop;
+video/webm=video.desktop;
+image/webp=userapp-convertwebp.desktop-ILOG02.desktop;
