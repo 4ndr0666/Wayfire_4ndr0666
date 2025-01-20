@@ -13,13 +13,13 @@ yad --width=330 --height=550 \
 --timeout-indicator=right \
 "+Shift+C" "Change Theme" "" \
 "+F1" "TD-Toggle" "" \
-"+Shift+1" "Torwrap" "" \
+"+Shift+F1" "Torwrap" "" \
 "+F2" "LF" "" \
 "+F3" "Micro" "" \
 "+Shift+F3" "Neovim" "" \
 "+F4" "Diffuse" "" \
 "+Shift+F4" "Meld" "" \
-"+F5" "Flawless-Cut" "" \
+"+F5" "Vidcut" "" \
 "+Shift+F5" "LosslessCut" "" \
 "+F6" "Searchmaster" "" \
 "+F7" "JDownloader" "" \
@@ -43,17 +43,13 @@ yad --width=330 --height=550 \
 "+ESC" "Wf-kill" "" \
 "+Shift+K" "Oom Killer" "" \
 "Alt+F1" "Wofi Clipboard" "" \
-"+Alt+R" "Run Command as Root" "" \
+"+Shift+R" "Run Command as Root" "" \
 "+Spacebar" "Toggle floating mode" "" \
 "+Shift+M" "Magnify" "" \
-"+Shift+M" "Minimize Window" "" \
-"+Shift+F" "Fullscreen" "" \
-"+Shift+F5" "Minimize" "" \
-"+Shift+F6" "Maximize" "" \
-"+Shift+F7" "Stay On Top" "" \
-"+Shift+F8" "Sticky Window" "" \
-"+Shift+F9" "Push Behind" "" \
-"+Shift+F10" "Show Desktop" "" \
+"Alt+1" "Minimize" "" \
+"Alt+2" "Maximize" "" \
+"Ctrl+F1" "Always On Top" "" \
+"Ctrl+F2" "Sticky" "" \
 "+Shift+rightclick" "3d-Wrot" "" \
 "=Ctrl+rightclick" "Wrot" "" \
 "+V" "Scale All Windows" "" \
