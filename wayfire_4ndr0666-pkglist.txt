@@ -285,6 +285,7 @@ hspell
 htop
 hugo
 hyperv
+hypnotix-wayland
 inetutils
 inotify-tools
 intel-graphics-compiler
