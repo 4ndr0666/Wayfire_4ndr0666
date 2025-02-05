@@ -20,7 +20,7 @@
     },
     "custom/brave": {
 	"format": "",
-        "on-click":"brave-beta --ozone-platform=wayland --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterizer --disable-crash-reporter --disable-background-networking --disable-component-extensions-with-background-pages & echo $! > /tmp/brave_pid",
+        "on-click":"brave-beta --ozone-platform=wayland --enable-features=UseOzonePlatform --disable-software-rasterizer --disable-crash-reporter --disable-background-networking --disable-component-extensions-with-background-pages & echo $! > /tmp/brave_pid",
         //"brave-beta --ozone-platform=wayland --enable-features=UseOzonePlatform --disable-gpu --disable-software-rasterizer",
 	    "on-click-right": "min-browser",
     },
@@ -90,11 +90,11 @@
         "exec": "~/.config/wayfire/waybar/scripts/storage4.sh",
     },
     "custom/storage5": {
-        "format": " /sto2 {}",
+        "format": " /tardis {}",
         "format-alt": " {percentage}%",
         "format-alt-click": "click-left",
         "return-type": "json",
-        "on-click-right": "thunar /sto2",
+        "on-click-right": "thunar /tardis",
         "interval": 60,
         "exec": "~/.config/wayfire/waybar/scripts/storage5.sh",
     },
@@ -117,8 +117,15 @@
     //                          }
     //                }
     //},
-
-	// waybar-clock
+    //"clock": {
+	//	"interval": 60,
+	//	"align": 0,
+	//	"rotate": 0,
+        //"timezone": "America/New_York",
+        //"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        //"format": " {:%I:%M %p}",
+        //"format-alt": " {:%A | %b %d, %G}"
+    //},
     "clock": {
        //"tooltip-format": "<big>{:%A, %d.%B %Y }</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 60,
@@ -143,8 +150,6 @@
                               }
                      }
     },
-
-	// waybar-custom
     "custom/themes": {
         "format": "",
         "tooltip": false,
