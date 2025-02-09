@@ -1,28 +1,29 @@
-# ------------------------------------------------------------------------------
-# Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
-#
-# Default Theme
-# ------------------------------------------------------------------------------
+# File: Default.bash
+# Author: 4ndr0666
+# Date: 2-8-25
 
-# Colors
-background='#1E212A'
-foreground='#E1E1E1'
-color0='#444750'
-color1='#EB6F92'
-color2='#6FEBA2'
-color3='#EBEB6F'
-color4='#6FB3EB'
-color5='#C496E5'
-color6='#92EFF6'
-color7='#E1E1E1'
-color8='#444750'
-color9='#EB6F92'
-color10='#6FEBA2'
-color11='#EBEB6F'
-color12='#6FB3EB'
-color13='#C496E5'
-color14='#92EFF6'
-color15='#E1E1E1'
+## Special
+background='#0C1012'
+foreground='#79deea'
+cursor='#79deea'
 
-# Wallpaper
-wallpaper="$HOME/.config/wayfire/wallpapers/wallpaper.jpg"
+## Colors
+color0='#0C1012'
+color1='#04778B'
+color2='#048B92'
+color3='#0395AB'
+color4='#05A6B3'
+color5='#04B1CB'
+color6='#03ACDC'
+color7='#79deea'
+color8='#549ba3'
+color9='#04778B'
+color10='#048B92'
+color11='#0395AB'
+color12='#05A6B3'
+color13='#04B1CB'
+color14='#03ACDC'
+color15='#79deea'
+
+## Wallpaper
+wallpaper="$HOME/Wallpapers/linux-arch-logo-technology-wallpaper-29b0b8ade1fa4d8b062798ef00f1c65d.jpg"

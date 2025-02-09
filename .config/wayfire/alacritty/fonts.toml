@@ -5,7 +5,8 @@
 # ====================================== // FONTS.TOML //
 # --- // Font:
 [font]
-size = 9
+## Font size in points.
+size = 10
 
 ## When true, Alacritty will use a custom built-in font for box drawing characters and powerline symbols.
 builtin_box_drawing = true

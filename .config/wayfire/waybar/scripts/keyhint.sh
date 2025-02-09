@@ -11,9 +11,9 @@ yad --width=330 --height=550 \
 --column= \
 --timeout=30 \
 --timeout-indicator=right \
-"+Shift+C" "Change Theme" "" \
-"+F1" "TD-Toggle" "" \
-"+Shift+F1" "Torwrap" "" \
+"+Shift+C" "Random Theme" "" \
+"+F1" "Transmission Daemon" "" \
+"+Shift+F1" "Transmission GUI" "" \
 "+F2" "LF" "" \
 "+F3" "Micro" "" \
 "+Shift+F3" "Neovim" "" \
@@ -27,6 +27,7 @@ yad --width=330 --height=550 \
 "+Shift+F8" "PacUI" "" \
 "+F9" "Dmenu Handler" "" \
 "+Shift+F9" "Wofi Media" "" \
+"+F10" "Play-With-MPV" "" \
 "+F12" "Dmenu Record" "" \
 "+S" "Screenshot Tool" "" \
 "Print" "Select Screenshot Area" "" \
@@ -41,7 +42,7 @@ yad --width=330 --height=550 \
 "+E" "LiteXL" "" \
 "+P" "Color Picker" "" \
 "+ESC" "Wf-kill" "" \
-"+Shift+K" "Oom Killer" "" \
+"+0" "Oom Killer" "" \
 "Alt+F1" "Wofi Clipboard" "" \
 "+Shift+R" "Run Command as Root" "" \
 "+Spacebar" "Toggle floating mode" "" \

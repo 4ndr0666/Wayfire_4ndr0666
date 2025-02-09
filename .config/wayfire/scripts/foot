@@ -19,5 +19,5 @@ elif [ "$1" == "-s" ]; then
 	foot --app-id='foot-float' --config="$CONFIG" \
 	--window-size-pixels=$(slurp -b ${background:1}CC -c ${accent:1}ff -s ${accent:1}0D -w 2 -f "%wx%h")
 else
-	foot --config="$CONFIG"
+	foot --config="$CONFIG" ${@}
 fi
