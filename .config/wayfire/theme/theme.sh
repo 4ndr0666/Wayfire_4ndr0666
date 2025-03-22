@@ -6,7 +6,7 @@ DIR="$HOME/.config/wayfire"
 ## Directories ------------------------------
 PATH_ALAC="$DIR/alacritty"
 PATH_FOOT="$DIR/foot"
-PATH_ST="$DIR/st"
+PATH_ST="/usr/local/bin/st"
 PATH_MAKO="$DIR/mako"
 PATH_ROFI="$DIR/rofi"
 PATH_WAYB="$DIR/waybar"
@@ -30,13 +30,13 @@ source_default() {
 	altbackground="`pastel color $background | pastel lighten 0.05 | pastel format hex`"
 	altforeground="`pastel color $foreground | pastel darken 0.30 | pastel format hex`"
 	accent="$color1"
-	notify-send -h string:x-canonical-private-synchronous:sys-notify-dtheme -u normal -i ${PATH_MAKO}/icons/palette.png "Applying Default Theme..."
+	notify-send -h string:x-canonical-private-synchronous:sys-notify-dtheme -u normal -i ${PATH_MAKO}/icons/palette.png "Activating 4ndr0hack Theme..."
 }
 
 ## Random Theme
 source_pywal() {
 	# Set you wallpaper directory here.
-	WALLDIR="/home/andro/Wallpapers"
+	WALLDIR="$HOME/Wallpapers"
 
 	# Check for wallpapers
 	check_wallpaper() {
@@ -48,19 +48,19 @@ source_pywal() {
 			fi
 		else
 			mkdir -p "$WALLDIR"
-			notify-send -h string:x-canonical-private-synchronous:sys-notify-noimg -u low -i ${PATH_MAKO}/icons/picture.png "Put some wallpapers in : $WALLDIR"
+			notify-send -h string:x-canonical-private-synchronous:sys-notify-noimg -u low -i ${PATH_MAKO}/icons/picture.png "How bout putting some wallpapers in: $WALLDIR dumbass"
 			exit
 		fi
 	}
 
 	# Run `pywal` to generate colors
-	generate_colors() {	
+	generate_colors() {
 		check_wallpaper
 		if [[ `which wal` ]]; then
-			notify-send -t 50000 -h string:x-canonical-private-synchronous:sys-notify-runpywal -i ${PATH_MAKO}/icons/timer.png "Generating Colorscheme. Please wait..."
+			notify-send -t 50000 -h string:x-canonical-private-synchronous:sys-notify-runpywal -i ${PATH_MAKO}/icons/timer.png "Generating New Theme 4 Yo Bitch Ass..."
 			wal -q -n -s -t -e -i "$WALLDIR"
 			if [[ "$?" != 0 ]]; then
-				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Failed to generate colorscheme."
+				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Failed. Try again."
 				exit
 			fi
 		else
@@ -91,7 +91,7 @@ apply_alacritty() {
 		[colors.primary]
 		background = "${background}"
 		foreground = "${foreground}"
-		
+
 		[colors.normal]
 		black   = "${color0}"
 		red     = "${color1}"
@@ -101,7 +101,7 @@ apply_alacritty() {
 		magenta = "${color5}"
 		cyan    = "${color6}"
 		white   = "${color7}"
-		
+
 		[colors.bright]
 		black   = "${color8}"
 		red     = "${color9}"
@@ -264,7 +264,7 @@ apply_wlogout() {
 
 ## Wofi --------------------------------------
 apply_wofi() {
-	# wofi : colors	
+	# wofi : colors
 	sed -i ${PATH_WOFI}/style.css \
 		-e "s/@define-color background .*/@define-color background     ${background};/g" \
 		-e "s/@define-color background-alt .*/@define-color background-alt ${altbackground};/g" \
@@ -286,7 +286,7 @@ apply_wayfire() {
 	root_bg="`pastel color ${background} | pastel format rgb-float | tr -d ' 'rgb\(\) | sed 's/,/ /g'`"
 	deco_ic="`pastel color ${altbackground} | pastel format rgb-float | tr -d ' 'rgb\(\) | sed 's/,/ /g'`"
 	deco_ac="`pastel color ${accent} | pastel format rgb-float | tr -d ' 'rgb\(\) | sed 's/,/ /g'`"
-	
+
 	# wayfire : theme
 	sed -i "$HOME"/.config/wayfire.ini \
 		-e "s/background_color = .*/background_color = $root_bg 1.0/g" \
