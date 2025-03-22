@@ -1,6 +1,7 @@
 # Aura Theme
 
 ## Wallpaper
+
 wallpaper="/home/andro/Wallpapers/Aura11920x1080.png"
 
 ## Special
@@ -27,7 +28,6 @@ color12='#6AF4D8'
 color13='#66FDD8'
 color14='#AD87FF'
 color15='#bfc8f1'
-
 
 ### FZF colors
 #export FZF_DEFAULT_OPTS="

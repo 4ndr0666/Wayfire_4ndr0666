@@ -30,7 +30,7 @@ source_default() {
 	altbackground="`pastel color $background | pastel lighten 0.05 | pastel format hex`"
 	altforeground="`pastel color $foreground | pastel darken 0.30 | pastel format hex`"
 	accent="$color1"
-	notify-send -h string:x-canonical-private-synchronous:sys-notify-dtheme -u normal -i ${PATH_MAKO}/icons/palette.png "Activating 4ndr0hack Theme..."
+	notify-send -h string:x-canonical-private-synchronous:sys-notify-dtheme -u normal -i ${PATH_MAKO}/icons/palette.png "Applying 4ndr0hack..."
 }
 
 ## Random Theme
@@ -57,14 +57,14 @@ source_pywal() {
 	generate_colors() {
 		check_wallpaper
 		if [[ `which wal` ]]; then
-			notify-send -t 50000 -h string:x-canonical-private-synchronous:sys-notify-runpywal -i ${PATH_MAKO}/icons/timer.png "Generating New Theme 4 Yo Bitch Ass..."
+			notify-send -t 50000 -h string:x-canonical-private-synchronous:sys-notify-runpywal -i ${PATH_MAKO}/icons/timer.png "Writing A New Theme 4 Yo Bitch Ass.."
 			wal -q -n -s -t -e -i "$WALLDIR"
 			if [[ "$?" != 0 ]]; then
-				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Failed. Try again."
+				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Fucked up! Try again."
 				exit
 			fi
 		else
-			notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "'pywal' is not installed."
+			notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Install 'pywal' dumbass!"
 			exit
 		fi
 	}
