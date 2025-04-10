@@ -1,10 +1,8 @@
 #!/bin/sh
-# File: ~/.config/wayfire/scripts/st
 # Author: 4ndr0666
-# Date: 12-18-24
+# ============================== // ST //
 
-# ============================== // ST // 
-COMMAND="st"
+COMMAND="/usr/local/bin/audit_critical_files.shst"
 
 if [ "$1" == "-f" ]; then
     # Launch ST in floating mode with a specific class or geometry
