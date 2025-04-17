@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-
-# File: wallpaper
 # Author: 4ndr0666
-# Date: 10-20-24
-## Sets Wallpaper in Wayfire
 
-# ================================= // WALLPAPER //
-WALLPAPER='/home/andro/Wallpapers/linux-arch-logo-technology-wallpaper-29b0b8ade1fa4d8b062798ef00f1c65d.jpg'
+# ================= // WALLPAPER //
+### Desc: Sets Wallpaper in Wayfire
 
+## Dir
+WALLPAPER='/home/andro/Wallpapers/Aura11920x1080.png'
+
+## Swaybg
 swaybg --output '*' --mode fill --image "$WALLPAPER"

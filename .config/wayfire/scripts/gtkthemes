@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
-## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 ##
 ## Set GTK Themes, Icons, Cursor and Fonts
 
 THEME='Sweet-v40'
-ICONS='Hack'
-FONT='Meslo LGS NF 9'
+ICONS='Colorful-Dark-Icons'
+FONT='JetBrainsMono Nerd Font Regular 9'
 CURSOR='Breeze-Adapta-Cursor'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'

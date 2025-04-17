@@ -3,12 +3,8 @@
 
 # ===================== // TOGGLE-WAYBAR //
 
-## Global Constants & Variables
-
 CONFIG="$HOME/.config/wayfire/waybar/config"
 STYLE="$HOME/.config/wayfire/waybar/style.css"
-
-## Restart Waybar
 
 restart_waybar() {
     pkill waybar
