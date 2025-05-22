@@ -1,20 +1,22 @@
-# File: ~/.config/wayfire/mako/config
+# config for Mako
 # Author: 4ndr0666
-# Date: 12-9-24
+# ========================== // MAKO CONFIG //
 
-# ========================== // CONFIG // 
-# --- // General:
+## History
+
 max-history=100
 sort=-time
 
-# --- // Bindings:
+## Bindings
+
 on-button-left=dismiss
 on-button-middle=none
 on-button-right=dismiss-all
 on-touch=dismiss
 #on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
-# --- // Styles:
+## Styles
+
 font=JetBrains Mono 10
 width=300
 height=100
@@ -36,20 +38,20 @@ layer=overlay
 anchor=top-right
 
 # Mako_Colors
-background-color=#030303
-text-color=#dcd9c7
-border-color=#101010
-progress-color=over #4EC7AE
+background-color=#000000
+text-color=#bfc8f1
+border-color=#0d0d0d
+progress-color=over #AA7BFF
 
 [urgency=low]
-border-color=#101010
+border-color=#0d0d0d
 default-timeout=2000
 
 [urgency=normal]
-border-color=#101010
+border-color=#0d0d0d
 default-timeout=5000
 
 [urgency=high]
-border-color=#53BA58
-text-color=#53BA58
+border-color=#AA7BFF
+text-color=#AA7BFF
 default-timeout=0

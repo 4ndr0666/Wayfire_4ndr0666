@@ -1,6 +1,7 @@
 #!/bin/sh
 
-mount="/sto2"
+mount="/storage"
+
 warning=20
 critical=10
 

@@ -1,5 +1,5 @@
 /* Text Font */
 
 * {
-    font: "JetBrainsMono Nerd Font Regular 10";
+    font: "Iosevka 10";
 }

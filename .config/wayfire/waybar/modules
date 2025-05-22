@@ -1,9 +1,8 @@
-// File: ~/.config/waybar/modules
+// File: Waybar Modules
 // Author: 4ndr0666
-//
 // ============================== // MODULES //
 // Description: This is the modules file
-// that can be customized for Wabar.
+//              that can be customized for Wabar.
 // ---------------------------------
 //
 
@@ -21,7 +20,7 @@
     },
     "custom/brave": {
         "format": "",
-        "on-click": "~/.config/wayfire/scripts/braveforegrounded",
+        "on-click": "~/.config/wayfire/scripts/bravebackgrounded",
         "on-click-right": "min-browser"
     },
     "custom/keyboard-layout": {
@@ -38,30 +37,20 @@
         "tooltip": false
     },
     "backlight": {
-	"interval": 2,
-	"align": 0,
-	"rotate": 0,
-	//"format": "{icon} {percent}%",
-	"format-icons": [
-		" ",
-		" ",
-		" ",
-		"󰃝 ",
-		"󰃞 ",
-		"󰃟 ",
-		"󰃠 "
-	],
-	"format": "{icon}",
-	//"format-icons": ["","","","","","","","","","","","","","",""],
-	"tooltip-format": "backlight {percent}%",
-	"icon-size": 10,
-	"on-click": "",
-	"on-click-middle": "",
-	"on-click-right": "",
-	"on-update": "",
-	"on-scroll-up": "$HOME/.config/hypr/scripts/Brightness.sh --inc",
-	"on-scroll-down": "$HOME/.config/hypr/scripts/Brightness.sh --dec",
-        "smooth-scrolling-threshold": 1
+		"interval": 2,
+		"align": 0,
+		"rotate": 0,
+        //"device": "amdgpu_bl0",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", ""],
+		// Commands to execute on events
+        "on-click": "",
+        "on-click-middle": "",
+        "on-click-right": "",
+        "on-update": "",
+        "on-scroll-up": "light -A 5%",
+        "on-scroll-down": "light -U 5%",
+        "smooth-scrolling-threshold": 1,
     },
     "custom/storage": {
         "format": " / {}",
@@ -170,13 +159,13 @@
         "format": "",
         "tooltip": false,
         "on-click": "$HOME/.config/wayfire/theme/theme.sh --pywal",
-        "on-click-right": "$HOME/.config/wayfire/theme/theme.sh --default"
+        "on-click-right": "$HOME/.config/wayfire/theme/theme.sh --default",
     },
     "cpu": {
         "format": "🖳{usage}%",
 	"interval": 1,
 	"min-length": 5,
-        "on-click": "$TERMINAL -e sudo htop",
+        "on-click": "$TERMINAL -e sudo htop ps aux --sort=-%mem",
         "on-click-right": "$TERMINAL -e sudo btop"
     },
     "memory": {
@@ -193,12 +182,12 @@
     //},
     "custom/menu": {
        //"format": " Menu",
-        "format": " ",
-        "tooltip": false,
-        "on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
+         "format": "",
+         "tooltip": false,
+        //"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
         //"on-click": "$HOME/.config/wayfire/scripts/wofi_menu",
         //"on-click-right": "$HOME/.config/wayfire/scripts/wofi_menu",
-        //"on-click": "$HOME/.config/wayfire/scripts/rofi_launcher",
+         "on-click": "$HOME/.config/wayfire/scripts/rofi_launcher",
         "on-click-right": "$HOME/.config/wayfire/scripts/rofi_runner",
         "tooltip-format": "Open Menu"
     },
@@ -223,12 +212,12 @@
          "on-click": "$HOME/.config/wayfire/scripts/rofi_powermenu",
     },
     "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        },
-
+         "format": "{icon}",
+         "format-icons": {
+             "activated": "",
+             "deactivated": ""
+         },
+         "timeout": 30
     },
     "custom/spotify": {
         "exec": "$HOME/.config/wayfire/waybar/spotify",
@@ -242,7 +231,7 @@
         "on-click-right": "playerctl next",
         "on-scroll-up": "playerctl position 05+",
         "on-scroll-down": "playerctl position 05-",
-        "smooth-scrolling-threshold": 1
+        "smooth-scrolling-threshold": 1,
     },
     "mpd": {
         "interval": 1,
@@ -263,10 +252,10 @@
         "on-update": "",
         "on-scroll-up": "mpc seek +00:00:01",
         "on-scroll-down": "mpc seek -00:00:01",
-        "smooth-scrolling-threshold": 1
+        "smooth-scrolling-threshold": 1,
     },
     "network": {
-        "interval": 5,
+		"interval": 5,
         //"interface": "wlan*", // (Optional) To force the use of this interface, set it for netspeed to work
         "format-wifi": " {essid}",
         "format-ethernet": "󰌘 {ipaddr}/{cidr}",
@@ -324,71 +313,74 @@
     "sway/window": {
         "format": "{}",
         "max-length": 50,
-        "icon": false
+        "icon": false,
     },
     "sway/workspaces": {
-        "disable-scroll": false,
-        "disable-click": false,
-        "all-outputs": true,
-        "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "漣",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "ﳴ",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        },
+         "disable-scroll": false,
+         "disable-click": false,
+         "all-outputs": true,
+         "format": "{icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "6": "漣",
+             "7": "",
+             "8": "",
+             "9": "",
+             "10": "ﳴ",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         },
         "smooth-scrolling-threshold": 1,
         "disable-scroll-wraparound": false,
         "enable-bar-scroll": false,
         "disable-markup": false,
-        "current-only": false
+        "current-only": false,
     },
     "tray": {
-	"icon-size": 20,
-	"spacing": 4,
+        "icon-size": 16,
+        "spacing": 10
     },
     "wlr/taskbar": {
-        "format": "{icon} {name}",
-        "all-outputs": false,
-        "active-first": false,
-        "icon-size": 16,
-        "icon-theme": "Colorful-Dark-Icons",
-        "tooltip-format": "{title}",
-        "on-click": "minimize-raise",
-        "on-click-middle": "",
-        "on-click-right": "close",
-	"ignore-list": [
-		"wofi",
-		"rofi",
-		"alacritty",
-	        "st",
-	],
+         "format": "{icon}",
+         "all-outputs": false,
+         "active-first": false,
+         "icon-size": 24,
+         "icon-theme": "Colorful-Dark-Icons",
+         "tooltip-format": "{title}",
+         //"ignore-list": [
+         //    "Alacritty"
+         //],
+         "app_ids-mapping": {
+              "firefoxdeveloperedition": "firefox-developer-edition"
+         },
+         "on-click": "minimize-raise",
+         "on-click-middle": "",
+         "on-click-right": "clost",
+         "on-update": "",
     },
+    
+	// waybar-wlr-workspaces
     "wlr/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
-            "6": "漣",
-            "7": "",
-            "8": "",
-            "9": "",
-            "10": "ﳴ",
-            "urgent": "",
-            "focused": "",
-            "default": ""
-        }
+         "format": "{icon}",
+         "format-icons": {
+             "1": "",
+             "2": "",
+             "3": "",
+             "4": "",
+             "5": "",
+             "6": "漣",
+             "7": "",
+             "8": "",
+             "9": "",
+             "10": "ﳴ",
+             "urgent": "",
+             "focused": "",
+             "default": ""
+         }
     }
 }

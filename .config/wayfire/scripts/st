@@ -2,7 +2,8 @@
 # Author: 4ndr0666
 # ============================== // ST //
 
-COMMAND="/usr/local/bin/audit_critical_files.shst"
+# ============================== // ST // 
+COMMAND="st"
 
 if [ "$1" == "-f" ]; then
     # Launch ST in floating mode with a specific class or geometry

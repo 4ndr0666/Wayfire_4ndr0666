@@ -6,7 +6,8 @@ DIR="$HOME/.config/wayfire"
 ## Directories ------------------------------
 PATH_ALAC="$DIR/alacritty"
 PATH_FOOT="$DIR/foot"
-PATH_ST="/usr/local/bin/st"
+PATH_KITY="$DIR/kitty"
+PATH_ST="$DIR/st"
 PATH_MAKO="$DIR/mako"
 PATH_ROFI="$DIR/rofi"
 PATH_WAYB="$DIR/waybar"
@@ -36,7 +37,7 @@ source_default() {
 ## Random Theme
 source_pywal() {
 	# Set you wallpaper directory here.
-	WALLDIR="$HOME/Wallpapers"
+	WALLDIR="`xdg-user-dir`/Wallpapers"
 
 	# Check for wallpapers
 	check_wallpaper() {
@@ -60,7 +61,7 @@ source_pywal() {
 			notify-send -t 50000 -h string:x-canonical-private-synchronous:sys-notify-runpywal -i ${PATH_MAKO}/icons/timer.png "Writing A New Theme 4 Yo Bitch Ass.."
 			wal -q -n -s -t -e -i "$WALLDIR"
 			if [[ "$?" != 0 ]]; then
-				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Fucked up! Try again."
+				notify-send -h string:x-canonical-private-synchronous:sys-notify-runpywal -u normal -i ${PATH_MAKO}/icons/palette.png "Failed to generate colorscheme."
 				exit
 			fi
 		else
@@ -144,6 +145,39 @@ apply_foot() {
 		bright6=${color14:1}   # bright cyan
 		bright7=${color15:1}   # bright white
 	_EOF_
+}
+
+## Kitty ---------------------------------
+apply_kitty() {
+	# kitty : colors
+	cat > ${PATH_KITY}/colors.conf <<- _EOF_
+		## Colors configuration
+		background ${background}
+		foreground ${foreground}
+		selection_background ${foreground}
+		selection_foreground ${background}
+		cursor ${foreground}
+
+		color0 ${color0}
+		color8 ${color8}
+		color1 ${color1}
+		color9 ${color9}
+		color2 ${color2}
+		color10 ${color10}
+		color3 ${color3}
+		color11 ${color11}
+		color4 ${color4}
+		color12 ${color12}
+		color5 ${color5}
+		color13 ${color13}
+		color6 ${color6}
+		color14 ${color14}
+		color7 ${color7}
+		color15 ${color15}
+	_EOF_
+
+	# reload kitty config
+	kill -SIGUSR1 $(pidof kitty)
 }
 
 # --- // ST:
@@ -312,6 +346,7 @@ fi
 apply_wallpaper
 apply_alacritty
 apply_foot
+apply_kitty
 apply_st
 apply_mako
 apply_rofi

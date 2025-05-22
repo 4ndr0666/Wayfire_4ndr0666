@@ -11,9 +11,28 @@ yad --width=330 --height=550 \
 --column= \
 --timeout=30 \
 --timeout-indicator=right \
+"+D" "Main Menu" "" \
+"+N" "Network Manager" "" \
+"+X" "Power Menu" "" \
+"+L" "Lock Screen" "" \
+"+P" "Color Picker" "" \
+"Alt+F1" "Wofi Clipboard" "" \
+"+V" "Scale All Windows" "" \
+"+0" "OOM Killer" "" \
+"+C" "Aura Theme" "" \
 "+Shift+C" "Random Theme" "" \
-"+F1" "Transmission Daemon" "" \
-"+Shift+F1" "Transmission GUI" "" \
+"+R" "Application Runner" "" \
+"+Shift+R" "Run Command as Root" "" \
+"+S" "Screenshot Tool" "" \
+"Print" "Select Screenshot Area" "" \
+"Shift+Print" "Screenshot in 5sec" "" \
+"+Print" "Screenshot in 10sec" "" \
+"+W" "Brave" "" \
+"+F" "Thunar" "" \
+"+E" "Geany" "" \
+"+B" "Restart Waybar" "" \
+"+F1" "Play All MPVs" "" \
+"+Shift+F1" "Pause All MPVs" "" \
 "+F2" "LF" "" \
 "+F3" "Micro" "" \
 "+Shift+F3" "Neovim" "" \
@@ -23,37 +42,16 @@ yad --width=330 --height=550 \
 "+Shift+F5" "LosslessCut" "" \
 "+F6" "Searchmaster" "" \
 "+F7" "JDownloader" "" \
-"+F8" "Garuda-Update" "" \
+"+F8" "4ndr0update" "" \
 "+Shift+F8" "PacUI" "" \
-"+F9" "Dmenu Handler" "" \
+"+F9" "Dmenuhandler" "" \
 "+Shift+F9" "Wofi Media" "" \
-"+F10" "Play-With-MPV" "" \
+"+F10" "" "" \
+"+F11" "" "" \
 "+F12" "Dmenu Record" "" \
-"+S" "Screenshot Tool" "" \
-"Print" "Select Screenshot Area" "" \
-"Shift+Print" "Screenshot in 5sec" "" \
-"+Print" "Screenshot in 10sec" "" \
-"+D" "Main Menu" "" \
-"+R" "Application Runner" "" \
-"+W" "Brave" "" \
-"+G" "Gammactl" "" \
-"+F" "Thunar" "" \
-"+B" "Restart Waybar" "" \
-"+E" "LiteXL" "" \
-"+P" "Color Picker" "" \
-"+ESC" "Wf-kill" "" \
-"+0" "Oom Killer" "" \
-"Alt+F1" "Wofi Clipboard" "" \
-"+Shift+R" "Run Command as Root" "" \
 "+Spacebar" "Toggle floating mode" "" \
-"+Shift+M" "Magnify" "" \
-"Alt+1" "Minimize" "" \
-"Alt+2" "Maximize" "" \
-"Ctrl+F1" "Always On Top" "" \
-"Ctrl+F2" "Sticky" "" \
+"Ctrl+Shift+F9" "Minimize" "" \
+"Ctrl+Shift+F10" "Always On Top" "" \
+"Ctrl+Shift+F11" "Sticky" "" \
 "+Shift+rightclick" "3d-Wrot" "" \
-"=Ctrl+rightclick" "Wrot" "" \
-"+V" "Scale All Windows" "" \
-"+L" "Lock Screen" "" \
-"+N" "Network Manager" "" \
-"+X" "Power Menu" "" \
+"=Ctrl+rightclick" "Wrot" "" 

@@ -1,75 +1,78 @@
-# File: $HOME/.config/wayfire/alacritty/alacritty.toml
 # Author: 4ndr0666
-# Date: 10-19-24
-
 # ===================================== // ALACRITTY.TOML //
-# --- // General:
-general.import = ["~/.config/wayfire/alacritty/colors.toml", "~/.config/wayfire/alacritty/fonts.toml"]
-terminal.shell = { program = "/bin/zsh", args = ["--login"] }
-general.working_directory = "/home/andro/"
+
+## Imports and Startup
+
+general.import = ["~/.config/wayfire/alacritty/themes/aura.toml", "~/.config/wayfire/alacritty/fonts.toml"]
+#terminal.shell = { program = "/bin/zsh", args = ["--login"] }
+#general.working_directory = "/home/andro/"
 general.live_config_reload = true
 general.ipc_socket = true
 
-# --- // Env: 
+## Environment Setup
+
 [env]
 TERM = "alacritty"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
-# --- // Window: 
+## Windows Dimensions
+
 [window]
 position = "None"
 dynamic_padding = true
 decorations = "full"
 opacity = 1.0
-blur = false
+blur = true
 startup_mode = "Windowed"
 dynamic_title = true
 class = { instance = "Alacritty", general = "Alacritty" }
-decorations_theme_variant = "dark"
+decorations_theme_variant = "None"
 
-# --- // Lines: 
 [window.dimensions]
-columns = 120
-#82
+columns = 95
 lines = 24
 
-# --- // Padding:
 [window.padding]
 x = 12
 y = 12
 
-# --- // Scrolling:
+## Scroll
+
 [scrolling]
 history = 10000
 multiplier = 3
 
-# --- // Bell: 
-[bell]
-animation = "EaseOutExpo"
-duration = 10
+## Bell
+
+#[bell]
+#animation = "EaseOutExpo"
+#duration = 10
 #command = { program = "paplay", args = ["/usr/share/sounds/freedesktop/stereo/bell.oga"] }
 
-# --- // Clipboard:
+## Clipboard
+
 [selection]
 save_to_clipboard = true
 
-# -- // Cursor: 
+## Mouse
+
 [cursor]
 vi_mode_style = "None"
-blink_interval = 250
+blink_interval = 750
 blink_timeout = 5
-unfocused_hollow = false
+unfocused_hollow = true
 thickness = 0.15
 
 [cursor.style]
 shape = "Block"
 blinking = "On"
 
-# --- // Mouse: 
 [mouse]
-hide_when_typing = false
+hide_when_typing = true
 
-# --- // Hints: 
+## Misc
+
+
 [[hints.enabled]]
 command         = "xdg-open"
 hyperlinks      = true
@@ -79,7 +82,6 @@ mouse.enabled   = true
 binding         = { key = "U", mods = "Control|Shift" }
 regex           = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩‘]+"
 
-# --- // Debug: 
 [debug]
 render_timer = false
 persistent_logging = false
@@ -87,5 +89,4 @@ log_level = "Warn"
 renderer = "None"
 print_events = false
 highlight_damage = false
-prefer_egl = true
-
+prefer_egl = false

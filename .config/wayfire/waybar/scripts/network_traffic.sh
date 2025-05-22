@@ -37,7 +37,8 @@ else
 # default to all interfaces except `lo`
   ifaces=(/sys/class/net/*)
   ifaces=(${ifaces[@]##*/})
-  ifaces=(${ifaces[@]^(eth|wlan|enp|wlp|eno)})
+  ifaces=(${ifaces[@]//lo/})
+# TODO: check that filtering out `lo` is enough, else `^(eth|wlan|enp|wlp)` as suggested
 fi
 
 # sanity check polling interval

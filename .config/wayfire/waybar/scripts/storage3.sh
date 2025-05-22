@@ -1,6 +1,9 @@
 #!/bin/sh
+# =================== // STORAGE3.SH //
 
-mount="/4ndr0"
+## Drive Name
+mount="/sto2"
+
 warning=20
 critical=10
 

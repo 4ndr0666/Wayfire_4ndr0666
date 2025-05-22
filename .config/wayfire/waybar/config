@@ -21,7 +21,7 @@
     "margin-left": 0, 				// Space to the left of the bar
     "margin-right": 0, 				// Space to the right of the bar
     "fixed-center": true, 			// Center modules position
-    "ipc": true, 				// Control waybar with `swaymsg bar` commands
+    "ipc": true, 					// Control waybar with `swaymsg bar` commands
 
 // -- // MODULE_ORDER // ========
     "modules-left": [

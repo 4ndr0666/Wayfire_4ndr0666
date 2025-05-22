@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mount="/storage"
+mount="/23.1"
 warning=20
 critical=10
 
