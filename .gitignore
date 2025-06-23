@@ -42,8 +42,7 @@ yarn-debug.log*
 
 ## C/C++/Rust/Go
 target/           
-*.dll
-bin/             
+*.dll             
 *.o
 *.ko
 *.a
