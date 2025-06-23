@@ -52,7 +52,7 @@ target/
 ## Vendor
 vendor/
 
-## Operating‑system Noise (usually have /bin here but needed to uploaded ~/.local/bin)
+## Operating‑system Noise (usually have "bin/" here but needed to uploaded ~/.local/bin)
 .thumbnails/
 $RECYCLE.BIN/
 desktop.ini
