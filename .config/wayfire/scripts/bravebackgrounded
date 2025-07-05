@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
-# File: ~/.config/wayfire/scripts/bravebeta
-# Minimal overhead version
+# ~/.config/wayfire/scripts/bravebeta
+# Optimized Brave Beta startup for Archcraft/Wayfire
 
-/usr/bin/brave-beta --allowlisted-extension-id=clngdbkpkpeebahjckkjfobafhncgmne \
-	--enable-features=UsesOzonePlatform,AllowLegacyMV2Extensions,BraveGoogleSignInPermission,ExtensionManifestV2,FluentOverlayScrollbar,IsolatedWebApps,ToastRefinements,WaylandPerSurfaceScale,WaylandTextInputV3,WaylandUiScale \ 
-	--disable-software-rasterizer --disable-crash-reporter=,brave,brave-beta --disable-accelerated-video-decode --disable-gpu-compositing --js-flags=--disable-optimizing-compilers --num-raster-threads=0 \
-	--disable-background-networking --disable-component-extensions-with-background-pages & echo $! > /tmp/brave-beta.pid
+BRAVE_BIN="/usr/bin/brave-beta"
+PIDFILE="/tmp/brave-beta.pid"
+
+"$BRAVE_BIN" \
+  --allowlisted-extension-id=clngdbkpkpeebahjckkjfobafhncgmne \
+  --disable-crash-reporter \
+  --ozone-platform=wayland \
+  --disk-cache-size=104857600 \
+  "$@" &
+
+echo $! > "$PIDFILE"
