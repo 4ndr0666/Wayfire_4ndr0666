@@ -1,35 +1,35 @@
 #!/usr/bin/env bash
 # Author: 4ndr0666
 # ========================= // AUTOSTART.SH //
-## Description : Launches with the autostart 
+## Description : Launches with the autostart
 #               module in wayfire.ini
 # ----------------------------------------
 
-## Global Constants
-SCRIPTS_DIR="$HOME/.config/wayfire/scripts"
+# Global Constants
+DIR="/home/andro/.config/wayfire/scripts"
 
-## Scripts
+# Gtkthemes
+bash "$DIR/gtkthemes" &
 
-### gtkthemes
-"$SCRIPTS_DIR/gtkthemes" &
+# Wallpaper
+bash "$DIR/wallpaper" &
 
-### wallpaper
-"$SCRIPTS_DIR/wallpaper" &
-echo $! > /tmp/wallpaper.pid
-
-### waybar
+## Waybar
 if ! pidof waybar > /dev/null; then
-    "$SCRIPTS_DIR/statusbar" &
+    bash "$DIR/statusbar" &
     echo $! > /tmp/waybar.pid
 fi
 
-### mako
+# Mako
 if ! pidof mako > /dev/null; then
-    "$SCRIPTS_DIR/notifications" &
+    bash "$DIR/notifications" &
     echo $! > /tmp/mako.pid
 fi
 
-### theme
-"$HOME/.config/wayfire/theme/theme.sh" --default &
+# Theme
+bash /home/andro/.config/wayfire/theme/theme.sh --default &
+
+# Mem-police
+sudo -bs --user=root /usr/bin/mem-police 
 
 exit 0
