@@ -1,0 +1,1 @@
+alpha animate autostart command decoration expo focus-change fast-switcher focus-request focus-steal-prevent follow-focus foreign-toplevel grid gtk-shell mag move oswitch place preserve-output resize scale session-lock simple-tile shortcuts-inhibit switcher vswitch window-rules wm-actions wobbly workarounds wrot wsets zoom extra-animations winzoom scale-title-filter wf-info
